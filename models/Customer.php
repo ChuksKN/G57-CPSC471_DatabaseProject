@@ -96,7 +96,7 @@
     public function update() {
           // Create query
           $query = 'UPDATE ' . $this->table . '
-                    SET cname = :cname, c_dob = :c_dob, credit_score = :credit_score, drivers_license = :drivers_license, phone = :phone, salary = :salary, super_eid = :super_eid
+                    SET cname = :cname, c_dob = :c_dob, credit_score = :credit_score, drivers_license = :drivers_license, phone = :phone
                     WHERE customer_id = :customer_id';
 
           // Prepare statement
@@ -108,6 +108,7 @@
           $this->credit_score = htmlspecialchars(strip_tags($this->credit_score));
           $this->drivers_license = htmlspecialchars(strip_tags($this->drivers_license));
           $this->phone = htmlspecialchars(strip_tags($this->phone));
+          $this->customer_id = htmlspecialchars(strip_tags($this->customer_id));
 
           // Bind data
           $stmt->bindParam(':fname', $this->fname);
@@ -115,7 +116,6 @@
           $stmt->bindParam(':credit_score', $this->credit_score);
           $stmt->bindParam(':drivers_license', $this->drivers_license);
           $stmt->bindParam(':phone', $this->phone);
-          $stmt->bindParam(':salary', $this->salary);
           $stmt->bindParam(':customer_id', $this->customer_id);
 
           // Execute query

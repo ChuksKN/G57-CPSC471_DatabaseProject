@@ -103,6 +103,7 @@
           $this->email = htmlspecialchars(strip_tags($this->email));
           $this->salary = htmlspecialchars(strip_tags($this->salary));
           $this->super_eid = htmlspecialchars(strip_tags($this->super_eid));
+          $this->employee_id = htmlspecialchars(strip_tags($this->employee_id));
 
           // Bind data
           $stmt->bindParam(':fname', $this->fname);
