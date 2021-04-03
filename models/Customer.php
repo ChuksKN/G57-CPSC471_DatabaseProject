@@ -97,7 +97,7 @@
           // Create query
           $query = 'UPDATE ' . $this->table . '
                     SET cname = :cname, c_dob = :c_dob, credit_score = :credit_score, drivers_license = :drivers_license, phone = :phone, salary = :salary, super_eid = :super_eid
-                    WHERE employee_id = :employee_id';
+                    WHERE customer_id = :customer_id';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
