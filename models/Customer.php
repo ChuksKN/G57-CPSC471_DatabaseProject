@@ -2,15 +2,15 @@
   class Customer {
     // DB stuff
     private $conn;
-    private $table = 'Customer';
+    private $table = 'customer';
 
-    // Employee Properties
-    public $customer_id;
-    public $cname;
-    public $c_dob;
-    public $credit_score;
-    public $drivers_license;
-    public $phone;
+    // customer Properties
+    public $CustomerID;
+    public $CName;
+    public $C_DOB;
+    public $Credit_Score;
+    public $Drivers_License;
+    public $PhoneNo;
 
     // Constructor with DB
     public function __construct($db) {
@@ -37,14 +37,14 @@
           // Create query
           $query = 'SELECT *
                     FROM ' . $this->table . '
-                    WHERE customer_id = ?
+                    WHERE CustomerID = ?
                     LIMIT 0,1';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Bind ID
-          $stmt->bindParam(1, $this->customer_id);
+          $stmt->bindParam(1, $this->CustomerID);
 
           // Execute query
           $stmt->execute();
@@ -52,34 +52,34 @@
           $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
           // Set properties
-          $this->cname = $row['cname'];
-          $this->c_dob = $row['c_dob'];
-          $this->credit_score = $row['credit_score'];
-          $this->drivers_license = $row['drivers_license'];
-          $this->phone = $row['phone'];
+          $this->CName = $row['CName'];
+          $this->C_DOB = $row['C_DOB'];
+          $this->Credit_Score = $row['Credit_Score'];
+          $this->Drivers_License = $row['Drivers_License'];
+          $this->PhoneNo = $row['PhoneNo'];
     }
 
     // Create Post
     public function create() {
           // Create query
-          $query = 'INSERT INTO ' . $this->table . ' SET cname = :cname, c_dob = :c_dob, credit_score = :credit_score, drivers_license = :drivers_license, phone = :phone';
+          $query = 'INSERT INTO ' . $this->table . ' SET CName = :CName, C_DOB = :C_DOB, Credit_Score = :Credit_Score, Drivers_License = :Drivers_License, PhoneNo = :PhoneNo';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Clean data
-          $this->cname = htmlspecialchars(strip_tags($this->cname));
-          $this->c_dob = htmlspecialchars(strip_tags($this->c_dob));
-          $this->credit_score = htmlspecialchars(strip_tags($this->credit_score));
-          $this->drivers_license = htmlspecialchars(strip_tags($this->drivers_license));
-          $this->phone = htmlspecialchars(strip_tags($this->phone));
+          $this->CName = htmlspecialchars(strip_tags($this->CName));
+          $this->C_DOB = htmlspecialchars(strip_tags($this->C_DOB));
+          $this->Credit_Score = htmlspecialchars(strip_tags($this->Credit_Score));
+          $this->Drivers_License = htmlspecialchars(strip_tags($this->Drivers_License));
+          $this->PhoneNo = htmlspecialchars(strip_tags($this->PhoneNo));
 
           // Bind data
-          $stmt->bindParam(':cname', $this->cname);
-          $stmt->bindParam(':c_dob', $this->c_dob);
-          $stmt->bindParam(':credit_score', $this->credit_score);
-          $stmt->bindParam(':drivers_license', $this->drivers_license);
-          $stmt->bindParam(':phone', $this->phone);
+          $stmt->bindParam(':CName', $this->CName);
+          $stmt->bindParam(':C_DOB', $this->C_DOB);
+          $stmt->bindParam(':Credit_Score', $this->Credit_Score);
+          $stmt->bindParam(':Drivers_License', $this->Drivers_License);
+          $stmt->bindParam(':PhoneNo', $this->PhoneNo);
 
           // Execute query
           if($stmt->execute()) {
@@ -96,27 +96,27 @@
     public function update() {
           // Create query
           $query = 'UPDATE ' . $this->table . '
-                    SET cname = :cname, c_dob = :c_dob, credit_score = :credit_score, drivers_license = :drivers_license, phone = :phone
-                    WHERE customer_id = :customer_id';
+                    SET CName = :CName, C_DOB = :C_DOB, Credit_Score = :Credit_Score, Drivers_License = :Drivers_License, PhoneNo = :PhoneNo
+                    WHERE CustomerID = :CustomerID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Clean data
-          $this->cname = htmlspecialchars(strip_tags($this->cname));
-          $this->dname = htmlspecialchars(strip_tags($this->c_dob));
-          $this->credit_score = htmlspecialchars(strip_tags($this->credit_score));
-          $this->drivers_license = htmlspecialchars(strip_tags($this->drivers_license));
-          $this->phone = htmlspecialchars(strip_tags($this->phone));
-          $this->customer_id = htmlspecialchars(strip_tags($this->customer_id));
+          $this->CName = htmlspecialchars(strip_tags($this->CName));
+          $this->dname = htmlspecialchars(strip_tags($this->C_DOB));
+          $this->Credit_Score = htmlspecialchars(strip_tags($this->Credit_Score));
+          $this->Drivers_License = htmlspecialchars(strip_tags($this->Drivers_License));
+          $this->PhoneNo = htmlspecialchars(strip_tags($this->PhoneNo));
+          $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
 
           // Bind data
           $stmt->bindParam(':fname', $this->fname);
-          $stmt->bindParam(':c_dob', $this->c_dob);
-          $stmt->bindParam(':credit_score', $this->credit_score);
-          $stmt->bindParam(':drivers_license', $this->drivers_license);
-          $stmt->bindParam(':phone', $this->phone);
-          $stmt->bindParam(':customer_id', $this->customer_id);
+          $stmt->bindParam(':C_DOB', $this->C_DOB);
+          $stmt->bindParam(':Credit_Score', $this->Credit_Score);
+          $stmt->bindParam(':Drivers_License', $this->Drivers_License);
+          $stmt->bindParam(':PhoneNo', $this->PhoneNo);
+          $stmt->bindParam(':CustomerID', $this->CustomerID);
 
           // Execute query
           if($stmt->execute()) {
@@ -133,16 +133,16 @@
     public function delete() {
 
           // Create query
-          $query2 = 'DELETE FROM ' . $this->table . ' WHERE customer_id = :customer_id';
+          $query2 = 'DELETE FROM ' . $this->table . ' WHERE CustomerID = :CustomerID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Clean data
-          $this->customer_id = htmlspecialchars(strip_tags($this->customer_id));
+          $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
 
           // Bind data
-          $stmt->bindParam(':customer_id', $this->customer_id);
+          $stmt->bindParam(':CustomerID', $this->CustomerID);
 
           // Execute query
           if($stmt->execute()) {

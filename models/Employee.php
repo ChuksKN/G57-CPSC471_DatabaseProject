@@ -2,17 +2,18 @@
   class Employee {
     // DB stuff
     private $conn;
-    private $table = 'Employee';
+    private $table = 'employee';
 
     // Employee Properties
-    public $employee_id;
-    public $fname;
-    public $lname;
-    public $dob;
-    public $email;
-    public $address;
-    public $salary;
-    public $super_eid;
+    public $EmployeeID;
+    public $Fname;
+    public $Lname;
+    public $DOB;
+    public $Email;
+    public $Address;
+    public $PhoneNumber;
+    public $Salary;
+    public $Super_EID;
 
     // Constructor with DB
     public function __construct($db) {
@@ -39,14 +40,14 @@
           // Create query
           $query = 'SELECT *
                     FROM ' . $this->table . '
-                    WHERE employee_id = ?
+                    WHERE EmployeeID = ?
                     LIMIT 0,1';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Bind ID
-          $stmt->bindParam(1, $this->employee_id);
+          $stmt->bindParam(1, $this->EmployeeID);
 
           // Execute query
           $stmt->execute();
@@ -54,39 +55,43 @@
           $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
           // Set properties
-          $this->fname = $row['fname'];
-          $this->lname = $row['lname'];
-          $this->dob = $row['dob'];
-          $this->email = $row['email'];
-          $this->salary = $row['salary'];
-          $this->super_eid = $row['super_eid'];
+          $this->Fname = $row['Fname'];
+          $this->Lname = $row['Lname'];
+          $this->DOB = $row['DOB'];
+          $this->Email = $row['Email'];
+          $this->Address = $row['Address'];
+          $this->PhoneNumber = $row['PhoneNumber'];
+          $this->Salary = $row['Salary'];
+          $this->Super_EID = $row['Super_EID'];
     }
 
     // Create Post
     public function create() {
           // Create query
-          $query = 'INSERT INTO ' . $this->table . ' SET fname = :fname, lname = :lname, dob = :dob, email = :email, address = :address, salary = :salary, super_eid = :super_eid';
+          $query = 'INSERT INTO ' . $this->table . ' SET Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Address = :Address, Salary = :Salary, Super_EID = :Super_EID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Clean data
-          $this->fname = htmlspecialchars(strip_tags($this->fname));
-          $this->lname = htmlspecialchars(strip_tags($this->lname));
-          $this->dob = htmlspecialchars(strip_tags($this->dob));
-          $this->email = htmlspecialchars(strip_tags($this->email));
-          $this->address = htmlspecialchars(strip_tags($this->address));
-          $this->salary = htmlspecialchars(strip_tags($this->salary));
-          $this->super_eid = htmlspecialchars(strip_tags($this->super_eid));
+          $this->Fname = htmlspecialchars(strip_tags($this->Fname));
+          $this->Lname = htmlspecialchars(strip_tags($this->Lname));
+          $this->DOB = htmlspecialchars(strip_tags($this->DOB));
+          $this->Email = htmlspecialchars(strip_tags($this->Email));
+          $this->Address = htmlspecialchars(strip_tags($this->Address));
+          $this->PhoneNumber = htmlspecialchars(strip_tags($this->PhoneNumber));
+          $this->Salary = htmlspecialchars(strip_tags($this->Salary));
+          $this->Super_EID = htmlspecialchars(strip_tags($this->Super_EID));
 
           // Bind data
-          $stmt->bindParam(':fname', $this->fname);
-          $stmt->bindParam(':lname', $this->lname);
-          $stmt->bindParam(':dob', $this->dob);
-          $stmt->bindParam(':email', $this->email);
-          $stmt->bindParam(':address', $this->address);
-          $stmt->bindParam(':salary', $this->salary);
-          $stmt->bindParam(':super_eid', $this->super_eid);
+          $stmt->bindParam(':Fname', $this->Fname);
+          $stmt->bindParam(':Lname', $this->Lname);
+          $stmt->bindParam(':DOB', $this->DOB);
+          $stmt->bindParam(':Email', $this->Email);
+          $stmt->bindParam(':Address', $this->Address);
+          $stmt->bindParam(':PhoneNumber', $this->PhoneNumber);
+          $stmt->bindParam(':Salary', $this->Salary);
+          $stmt->bindParam(':Super_EID', $this->Super_EID);
 
           // Execute query
           if($stmt->execute()) {
@@ -103,30 +108,32 @@
     public function update() {
           // Create query
           $query = 'UPDATE ' . $this->table . '
-                    SET fname = :fname, lname = :lname, dob = :dob, email = :email, address = :address, salary = :salary, super_eid = :super_eid
-                    WHERE employee_id = :employee_id';
+                    SET Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Address = :Address, Salary = :Salary, Super_EID = :Super_EID
+                    WHERE EmployeeID = :EmployeeID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Clean data
-          $this->fname = htmlspecialchars(strip_tags($this->fname));
-          $this->dname = htmlspecialchars(strip_tags($this->lname));
-          $this->dob = htmlspecialchars(strip_tags($this->dob));
-          $this->email = htmlspecialchars(strip_tags($this->email));
-          $this->address = htmlspecialchars(strip_tags($this->address));
-          $this->salary = htmlspecialchars(strip_tags($this->salary));
-          $this->super_eid = htmlspecialchars(strip_tags($this->super_eid));
+          $this->Fname = htmlspecialchars(strip_tags($this->Fname));
+          $this->Lname = htmlspecialchars(strip_tags($this->Lname));
+          $this->DOB = htmlspecialchars(strip_tags($this->DOB));
+          $this->Email = htmlspecialchars(strip_tags($this->Email));
+          $this->Address = htmlspecialchars(strip_tags($this->Address));
+          $this->PhoneNumber = htmlspecialchars(strip_tags($this->PhoneNumber));
+          $this->Salary = htmlspecialchars(strip_tags($this->Salary));
+          $this->Super_EID = htmlspecialchars(strip_tags($this->Super_EID));
 
           // Bind data
-          $stmt->bindParam(':fname', $this->fname);
-          $stmt->bindParam(':lname', $this->lname);
-          $stmt->bindParam(':dob', $this->dob);
-          $stmt->bindParam(':email', $this->email);
-          $stmt->bindParam(':address', $this->address);
-          $stmt->bindParam(':salary', $this->salary);
-          $stmt->bindParam(':super_eid', $this->super_eid);
-          $stmt->bindParam(':employee_id', $this->employee_id);
+          $stmt->bindParam(':Fname', $this->Fname);
+          $stmt->bindParam(':Lname', $this->Lname);
+          $stmt->bindParam(':DOB', $this->DOB);
+          $stmt->bindParam(':Email', $this->Email);
+          $stmt->bindParam(':Address', $this->Address);
+          $stmt->bindParam(':PhoneNumber', $this->PhoneNumber);
+          $stmt->bindParam(':Salary', $this->Salary);
+          $stmt->bindParam(':Super_EID', $this->Super_EID);
+          $stmt->bindParam(':EmployeeID', $this->EmployeeID);
 
           // Execute query
           if($stmt->execute()) {
@@ -143,16 +150,16 @@
     public function delete() {
 
           // Create query
-          $query2 = 'DELETE FROM ' . $this->table . ' WHERE employee_id = :employee_id';
+          $query2 = 'DELETE FROM ' . $this->table . ' WHERE EmployeeID = :EmployeeID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Clean data
-          $this->employee_id = htmlspecialchars(strip_tags($this->employee_id));
+          $this->EmployeeID = htmlspecialchars(strip_tags($this->EmployeeID));
 
           // Bind data
-          $stmt->bindParam(':employee_id', $this->employee_id);
+          $stmt->bindParam(':EmployeeID', $this->EmployeeID);
 
           // Execute query
           if($stmt->execute()) {
