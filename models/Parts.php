@@ -121,7 +121,7 @@
     public function delete() {
 
           // Create query
-          $query2 = 'DELETE FROM ' . $this->table . ' WHERE PartID = :PartID';
+          $query = 'DELETE FROM ' . $this->table . ' WHERE PartID = :PartID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);

@@ -133,7 +133,7 @@
     public function delete() {
 
           // Create query
-          $query2 = 'DELETE FROM ' . $this->table . ' WHERE CustomerID = :CustomerID';
+          $query = 'DELETE FROM ' . $this->table . ' WHERE CustomerID = :CustomerID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);

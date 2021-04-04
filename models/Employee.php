@@ -150,7 +150,7 @@
     public function delete() {
 
           // Create query
-          $query2 = 'DELETE FROM ' . $this->table . ' WHERE EmployeeID = :EmployeeID';
+          $query = 'DELETE FROM ' . $this->table . ' WHERE EmployeeID = :EmployeeID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
