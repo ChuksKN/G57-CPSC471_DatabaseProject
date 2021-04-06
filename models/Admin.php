@@ -68,7 +68,7 @@
     // Create Post
     public function create() {
           // Create query
-          $query = 'INSERT INTO' . $this->table . ' SET EmployeeID = :EmployeeID';
+          $query = 'INSERT INTO ' . $this->table . ' SET EmployeeID = :EmployeeID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
