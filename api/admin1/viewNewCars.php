@@ -53,6 +53,6 @@
     } else {
       // No new car entries
       echo json_encode(
-        array('message' => 'No New Car Sales Entry Found')
+        array('message' => 'No New Cars Found')
       );
     }
