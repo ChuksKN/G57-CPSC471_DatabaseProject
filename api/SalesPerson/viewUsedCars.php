@@ -4,16 +4,16 @@
     header('Content-Type: application/json');
 
     include_once '../../config/Database.php';
-    include_once '../../models/Used_car.php';
+    include_once '../../models/Salesperson.php';
 
     // Instantiate DB & connect
     $database = new Database();
     $db = $database->connect();
-    // Instantiate used car object
-    $used_car = new Used_car($db);
+    // Instantiate sales person object
+    $sales = new Salesperson($db);
 
-    // used car query
-    $result = $used_car->read();
+    // sales person query
+    $result = $sales->read();
     // Get row count
     $num = $result->rowCount();
 
