@@ -54,6 +54,6 @@
     } else {
       // No used car entries
       echo json_encode(
-        array('message' => 'No Used Car Sales Entries Found')
+        array('message' => 'No Used Cars Found')
       );
     }
