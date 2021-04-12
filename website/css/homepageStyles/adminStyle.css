@@ -1,0 +1,105 @@
+body {
+    background-color: #323a44ff;
+    font-family: "Fira Code";
+    text-align: center;
+    background-image: url("../../images/PageBackground.png");
+    /*background-position: center;*/
+    height: 1100px;
+    background-position: 25px;
+    background-repeat: no-repeat;
+    margin: 0;
+    overflow: hidden;
+}
+
+.myHomepage{
+    color: #ebebe1ff;
+    background-color: #323a44ff;
+    text-align: left;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    padding-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Fira Code Medium";
+    vertical-align: 5px;
+
+}
+
+.topImage{
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: -10px;
+}
+
+.myAdmin{
+    background-color: #ffffffff;
+    color: #323a44ff;
+    text-align: left;
+    font-size: 50px;
+    padding-left: 60px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-family: "Fira Code";
+}
+
+.separateLine{
+    background-color: #323a44ff;
+    border-left: 0px #323a44ff;
+    height: 2px;
+}
+
+.menuHolder{
+    background-color: #ecececff;
+    border-left: 0px #ecececff;
+    height: 600px;
+}
+
+.adminHolder{
+    display: inline-flex;
+    width: 1628px;
+    /*height: 20px;*/
+
+    padding: 10px;
+    padding-left: 30px;
+    margin-top: 25px;
+
+    color: #ebebe1ff;
+    background-color: #323a44ff;
+
+    font-size: 50px;
+}
+
+li{
+    list-style-type: none;
+    display: inline-grid;
+    margin: 20px;
+
+}
+
+.box{
+    display: inline-block;
+    width: 340px;
+    height: 168px;
+    margin-top: 50px;
+
+    background-color: #ffffffff;
+
+    border-radius: 4px;
+    border: 2px solid #323a44ff;
+
+}
+
+.textInBox{
+    color: #323a44ff;
+    text-align: center;
+    font-size: 30px;
+}
+
+.lineBox{
+    position: static;
+
+}
+
+.no-bullet{
+    list-style-type: none
+}

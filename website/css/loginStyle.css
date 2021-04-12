@@ -2,7 +2,7 @@ body {
     background-color: #323a44ff;
     font-family: "Fira Code";
     text-align: center;
-    background-image: url("../images/loginPageBackground.png");
+    background-image: url("../images/PageBackground.png");
     /*background-position: center;*/
     height: 1100px;
     background-position: 25px;
@@ -85,7 +85,6 @@ input[type=password] {
 .lineSplit{
     margin-top: 50px;
 }
-
 
 .rememberMe{
     font-size: medium;
