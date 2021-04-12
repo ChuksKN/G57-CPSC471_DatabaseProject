@@ -20,6 +20,7 @@
   $data = json_decode(file_get_contents("php://input"));
 
   $emp->EmployeeID = $data->EmployeeID;
+  $tech->EmployeeID = $data->EmployeeID;
   $emp->Fname = $data->Fname;
   $emp->Lname = $data->Lname;
   $emp->DOB = $data->DOB;
