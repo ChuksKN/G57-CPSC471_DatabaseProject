@@ -35,7 +35,7 @@ if ($num > 0) {
             'Address' => $Address,
             'PhoneNumber' => $PhoneNumber,
             'Salary' => $Salary,
-            'Super_SSN' => $Super_SSN
+            'Super_EID' => $Super_EID
         );
 
         // Push to "data"
