@@ -123,9 +123,11 @@
           $stmt = $this->conn->prepare($query);
 
           // Clean data
+          $this->EmployeeID = htmlspecialchars(strip_tags($this->EmployeeID));
           $this->T_grade = htmlspecialchars(strip_tags($this->T_grade));
 
           // Bind data
+          $stmt->bindParam(':EmployeeID', $this->EmployeeID);
           $stmt->bindParam(':T_grade', $this->T_grade);
 
           // Execute query
