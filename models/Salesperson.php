@@ -39,7 +39,7 @@
     public function read_under() {
       // Create query
       $query = 'SELECT *
-                FROM employee NATURAL JOIN ' . $this.table . '
+                FROM employee NATURAL JOIN ' . $this->table . '
                 WHERE Super_EID = ?';
 
       // Prepare statement
@@ -58,7 +58,7 @@
     public function read_single() {
           // Create query
           $query = 'SELECT *
-                    FROM employee NATURAL JOIN ' . $this.table . '
+                    FROM employee NATURAL JOIN ' . $this->table . '
                     WHERE EmployeeID = ?
                     LIMIT 0,1';
 
