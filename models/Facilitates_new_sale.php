@@ -43,16 +43,14 @@ class Facilitates_new_sale
     // Create query
     $query = 'SELECT *
                     FROM ' . $this->table . '
-                    WHERE EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN
+                    WHERE SaleID = :SaleID
                     LIMIT 0,1';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
 
     // Bind ID
-    $stmt->bindParam(':EmployeeID', $this->EmployeeID);
-    $stmt->bindParam(':CustomerID', $this->CustomerID);
-    $stmt->bindParam(':VIN', $this->VIN);
+    $stmt->bindParam(':SaleID', $this->SaleID);
 
     // Execute query
     $stmt->execute();
@@ -60,6 +58,9 @@ class Facilitates_new_sale
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Set properties
+    $this->EmployeeID = $row['EmployeeID'];
+    $this->CustomerID = $row['CustomerID'];
+    $this->VIN = $row['VIN'];
     $this->SaleID = $row['SaleID'];
     $this->SaleDate = $row['SaleDate'];
     $this->LPlateNo = $row['LPlateNo'];
@@ -112,8 +113,8 @@ class Facilitates_new_sale
   {
     // Create query
     $query = 'UPDATE ' . $this->table . '
-                    SET SaleID = :SaleID, SaleDate = :SaleDate, RegistrationDetails = :RegistrationDetails, Method_of_Payment = :Method_of_Payment
-                    WHERE EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN';
+                    SET EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN, SaleDate = :SaleDate, RegistrationDetails = :RegistrationDetails, Method_of_Payment = :Method_of_Payment
+                    WHERE SaleID = :SaleID';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
@@ -155,20 +156,16 @@ class Facilitates_new_sale
   {
 
     // Create query
-    $query = 'DELETE FROM ' . $this->table . ' WHERE EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN';
+    $query = 'DELETE FROM ' . $this->table . ' WHERE SaleID = :SaleID';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
 
     // Clean data
-    $this->EmployeeID = htmlspecialchars(strip_tags($this->EmployeeID));
-    $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
-    $this->VIN = htmlspecialchars(strip_tags($this->VIN));
+    $this->SaleID = htmlspecialchars(strip_tags($this->SaleID));
 
     // Bind data
-    $stmt->bindParam(':EmployeeID', $this->EmployeeID);
-    $stmt->bindParam(':CustomerID', $this->CustomerID);
-    $stmt->bindParam(':VIN', $this->VIN);
+    $stmt->bindParam(':SaleID', $this->SaleID);
 
     // Execute query
     if ($stmt->execute()) {
