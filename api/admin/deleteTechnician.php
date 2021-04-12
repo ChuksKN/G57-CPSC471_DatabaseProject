@@ -8,6 +8,7 @@
     include_once '../../config/Database.php';
     include_once '../../models/Employee.php';
     include_once '../../models/Technician.php';
+    include_once '../../models/Handle_req.php';
 
     //Instantiate DB & connect
     $database = new Database();
@@ -16,6 +17,7 @@
     // Instantiate tech object
     $emp = new Employee($db);
     $tech = new Technician($db);
+    $request = new Handle_req($db);
 
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
@@ -42,12 +44,13 @@
       // Set EmployeeID to update
       $emp->EmployeeID = $data->EmployeeID;
       $tech->EmployeeID = $data->EmployeeID;
+      $request->EmployeeID = $data->EmployeeID;
 
       if(in_array($tech->EmployeeID, $tech_arr))
       {
 
             // Delete tech person
-            if($tech->delete() && $emp->delete()){
+            if($request->delete_by_eid() && $tech->delete() && $emp->delete()){
                 echo json_encode(
                     array('message' => 'Technician Has Been Deleted')
                 );
