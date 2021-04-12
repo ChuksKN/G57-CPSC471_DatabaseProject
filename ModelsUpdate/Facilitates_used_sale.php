@@ -33,59 +33,34 @@
       return $stmt;
     }
 
-    // Get Single Post
-    public function read_single() {
-          // Create query
-          $query = 'SELECT *
-                    FROM employee NATURAL JOIN '  . $this->table . '
-                    WHERE EmployeeID = ?
+  // Get Single Post
+  public function read_single()
+  {
+    // Create query
+    $query = 'SELECT *
+                    FROM ' . $this->table . '
+                    WHERE USaleID = ?
                     LIMIT 0,1';
-          $query1 = 'SELECT *
-                    FROM customer NATURAL JOIN ' . $this->table . '
-                    WHERE CustomerID = ?
-                    LIMIT 0,1';
-          $query2 = 'SELECT *
-                    FROM car NATURAL JOIN ' . $this->table . '
-                    WHERE VIN = ?
-                    LIMIT 0,1';
-          $query3 = 'SELECT *
-                     FROM ' . $this->table;
 
-          // Prepare statement
-          $stmt = $this->conn->prepare($query);
-          $stmt1 = $this->conn->prepare($query1);
-          $stmt2 = $this->conn->prepare($query2);
-          $stmt3 = $this->conn->prepare($query3);
+    // Prepare statement
+    $stmt = $this->conn->prepare($query);
 
-          // Bind ID
-          $stmt->bindParam(1, $this->EmployeeID);
-          $stmt1->bindParam(1, $this->CustomerID);
-          $stmt2->bindParam(1, $this->VIN);
-          $stmt3->bindParam(1, $this->USaleID);
+    // Bind ID
+    $stmt->bindParam(1, $this->USaleID);
 
+    // Execute query
+    $stmt->execute();
 
-          // Execute query
-          $stmt->execute();
-          $stmt1->execute();
-          $stmt2->execute();
-          $stmt3->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
-
-
-          $row = $stmt3->fetch(PDO::FETCH_ASSOC);
-          //$row1 = $stmt1->fetch(PDO::FETCH_ASSOC);
-          //$row2 = $stmt2->fetch(PDO::FETCH_ASSOC);
-          //$row3 = $stmt3->fetch(PDO::FETCH_ASSOC);
-
-
-
-          // Set properties
-          $this->USaleID = $row['USaleID'];
-          $this->USaleDate = $row['USaleDate'];
-          $this->LPlateNo = $row['LPlateNo'];
-          $this->PaymentMethod = $row['PaymentMethod'];
-    }
+    // Set properties
+    $this->EmployeeID = $row['EmployeeID'];
+    $this->CustomerID = $row['CustomerID'];
+    $this->VIN = $row['VIN'];
+    $this->USaleDate = $row['USaleDate'];
+    $this->LPlateNo = $row['LPlateNo'];
+    $this->PaymentMethod = $row['PaymentMethod'];
+  }
 
     // Create Post
     public function create() {
