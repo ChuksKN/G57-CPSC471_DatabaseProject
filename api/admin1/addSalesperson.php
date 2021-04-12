@@ -6,6 +6,7 @@
   header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
   include_once '../../config/Database.php';
+  include_once '../../models/Employee.php';
   include_once '../../models/Salesperson.php';
 
   // Instantiate DB & connect
@@ -20,6 +21,7 @@
   $data = json_decode(file_get_contents("php://input"));
 
   $emp->EmployeeID = $data->EmployeeID;
+  $sales->EmployeeID = $data->EmployeeID;
   $emp->Fname = $data->Fname;
   $emp->Lname = $data->Lname;
   $emp->DOB = $data->DOB;
@@ -27,7 +29,7 @@
   $emp->Address = $data->Address;
   $emp->PhoneNumber = $data->PhoneNumber;
   $emp->Salary = $data->Salary;
-  $sales->Super_EID = $data->Super_EID;
+  $emp->Super_EID = $data->Super_EID;
 
 
   // Create Salesperson
@@ -37,6 +39,6 @@
     );
   } else {
     echo json_encode(
-      array('message' => 'Unsuccessful.')
+      array('message' => 'Failed to add Salesperson.')
     );
   }
