@@ -1,0 +1,92 @@
+body {
+    background-color: #323a44ff;
+    font-family: "Fira Code";
+    text-align: center;
+    background-image: url("../images/loginPageBackground.png");
+    /*background-position: center;*/
+    height: 1100px;
+    background-position: 25px;
+    background-repeat: no-repeat;
+    margin: 0;
+    overflow: hidden;
+}
+
+div.form{
+    color: #ebebe1ff;
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 40px;
+    font-size: large;
+}
+
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ffffffff;
+    border-radius: 4px;
+    background-color: #e8f0feff;
+}
+
+input[type=password] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ffffffff;
+    border-radius: 4px;
+    background-color: #e8f0feff;
+}
+
+.topHeader {
+    color: #ebebe1ff;
+    font-size: xx-large;
+    display: inline-block;
+    margin-top: 250px;
+    font-family: "Fira Code Medium";
+    font-weight: bold;
+
+}
+
+.topLogo{
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: -10px;
+}
+
+.astrix{
+    font-size: x-large;
+    color: #f65177ff;
+
+}
+
+.loginButton{
+    font-family: "Fira Code";
+    font-weight: bold;
+    background-color: #0078d4ff;
+    color: #ebebe1ff;
+    border-color: #ffffffff;
+    border-radius: 5px;
+    border-style: solid;
+    font-size: 16px;
+
+}
+
+.cancelButton{
+    font-family: "Fira Code";
+    font-weight: bold;
+    background-color: #e8f0feff;
+    color: #323a44ff;
+    border-color: #ffffffff;
+    border-radius: 5px;
+    border-style: solid;
+    font-size: 16px;
+
+}
+
+.lineSplit{
+    margin-top: 50px;
+}
+
+
+.rememberMe{
+    font-size: medium;
+}
