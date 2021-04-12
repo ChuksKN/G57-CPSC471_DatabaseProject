@@ -79,13 +79,11 @@ class Handle_req
         return false;
     }
 
-    // Update Post
-    public function update()
+    // Delete Post
+    public function delete()
     {
         // Create query
-        $query = 'UPDATE ' . $this->table . '
-                    SET 
-                    WHERE ';
+        $query = 'DELETE FROM ' . $this->table . ' WHERE EmployeeID = :EmployeeID AND WorkOrderID = :WorkOrderID';
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
@@ -109,22 +107,19 @@ class Handle_req
         return false;
     }
 
-    // Delete Post
-    public function delete()
+    public function delete_by_eid()
     {
         // Create query
-        $query = 'DELETE FROM ' . $this->table . ' WHERE EmployeeID = :EmployeeID, WorkOrderID = :WorkOrderID';
+        $query = 'DELETE FROM ' . $this->table . ' WHERE EmployeeID = :EmployeeID';
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
 
         // Clean data
         $this->EmployeeID = htmlspecialchars(strip_tags($this->EmployeeID));
-        $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
 
         // Bind data
         $stmt->bindParam(':EmployeeID', $this->EmployeeID);
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
 
         // Execute query
         if ($stmt->execute()) {
