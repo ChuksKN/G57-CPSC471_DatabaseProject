@@ -31,29 +31,24 @@ class Handle_req
         return $stmt;
     }
 
-    // Get Single Post
-    public function read_single()
+    // Get Maintenance request under a certain technician
+    public function read_under()
     {
         // Create query
         $query = 'SELECT *
-                    FROM ' . $this->table . '
-                    WHERE EmployeeID = :EmployeeID, WorkOrderID = :WorkOrderID
-                    LIMIT 0,1';
+                    FROM ' . $this->table . ' NATURAL JOIN Maintenance_req
+                    WHERE EmployeeID = :EmployeeID';
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
 
         // Bind ID
         $stmt->bindParam(':EmployeeID', $this->EmployeeID);
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
 
         // Execute query
         $stmt->execute();
 
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Set properties
-
+        return $stmt;
     }
 
     // Create Post
