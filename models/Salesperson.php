@@ -113,7 +113,7 @@
     public function update() {
           // Create query
           $query = 'UPDATE Employee
-                    SET Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Salary = :Salary, Super_EID = :Super_EID
+                    SET Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Address = :Address, PhoneNumber = :PhoneNumber, Salary = :Salary, Super_EID = :Super_EID
                     WHERE EmployeeID = :EmployeeID';
 
           // Prepare statement

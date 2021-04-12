@@ -110,7 +110,7 @@
     public function update() {
           // Create query
           $query = 'UPDATE ' . $this->table . '
-                    SET Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Address = :Address, Salary = :Salary, Super_EID = :Super_EID
+                    SET Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Address = :Address, PhoneNumber = :PhoneNumber, Salary = :Salary, Super_EID = :Super_EID
                     WHERE EmployeeID = :EmployeeID';
 
           // Prepare statement
