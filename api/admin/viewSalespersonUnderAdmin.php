@@ -17,7 +17,7 @@
   $sales->Super_EID = isset($_GET['Super_EID']) ? $_GET['Super_EID'] : die();
 
   // Get sales
-  $resutl = $sales->read_under();
+  $result = $sales->read_under();
   // Get row count
   $num = $result->rowCount();
 
@@ -39,7 +39,7 @@
           'Address' => $Address,
           'PhoneNumber' => $PhoneNumber,
           'Salary' => $Salary,
-          'Super_SSN' => $Super_SSN
+          'Super_EID' => $Super_EID
     );
 
     // Push to "data"
