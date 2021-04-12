@@ -1,22 +1,36 @@
-<?php
-    // Headers
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
+<?php 
+  // Headers
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json');
+  header('Access-Control-Allow-Methods: DELETE');
+  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
     include_once '../../config/Database.php';
-    include_once '../../models/Admin.php'; // We actually need to include Admin.php and not SalesPerson.php since it will be the admin accessing this (these functions are define in Admin.php)
+    include_once '../../models/Employee.php';
+    include_once '../../models/Salesperson.php';
 
-    // Instantiate DB & connect
+    //Instantiate DB & connect
     $database = new Database();
     $db = $database->connect();
-    // Instantiate salesperson object
-    $admin = new Admin($db); // Since we defined functions like delete() in Admin.php and must include Admin.php we also have to create the admin object which will perforom the delete function
 
-    // Sales Person Properties
-    $EmployeeID = 01234567891 // EmployeeID is set to int(11) NOT NULL in the SQL dump, we need to add some value for it here when deleting a salesperson
+    // Instantiate sales object
+    $emp = new Employee($db);
+    $sales = new Salesperson($db);
 
-    $stmt = $admin->delete_salesperson($EmployeeID); // we only have delete() at the moment in Admin.php but since we have two different delete API endpoints in our google docs I think we should
-                                                    // create them separately such that we have delete_salesperson() that delete that salesperson EmployeeID and delete_tech() that deletes technician EmployeeID
-                                                    // because once you delete the EmployeeID which is the primary key, it deletes the entire tuple 
+    // Get raw posted data
+    $data = json_decode(file_get_contents("php://input"));
 
-    ?>
+    // Set EmployeeID to update
+    $emp->EmployeeID = $data->EmployeeID;
+    $sales->EmployeeID = $data->EmployeeID;
+
+    // Delete sales person
+    if($sales->delete() && $emp->delete()){
+        echo json_encode(
+            array('message' => 'Sales Person Has Been Deleted')
+        );
+    } else{
+        echo json_encode(
+            array('message' => 'Failed To Delete Sales Person')
+        );
+    }
