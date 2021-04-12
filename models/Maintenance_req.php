@@ -32,31 +32,6 @@ class Maintenance_req
         return $stmt;
     }
 
-    // Get Single Post
-    public function read_single()
-    {
-        // Create query
-        $query = 'SELECT *
-                    FROM ' . $this->table . '
-                    WHERE WorkOrderID = ?
-                    LIMIT 0,1';
-
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
-
-        // Bind ID
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
-
-        // Execute query
-        $stmt->execute();
-
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Set properties
-        $this->WorkCost = $row['WorkCost'];
-        $this->Request_Date = $row['Request_Date'];
-    }
-
     // Create Post
     public function create()
     {

@@ -43,7 +43,7 @@ class Facilitates_new_sale
     // Create query
     $query = 'SELECT *
                     FROM ' . $this->table . '
-                    WHERE SaleID = :SaleID
+                    WHERE SaleID = ?
                     LIMIT 0,1';
 
     // Prepare statement

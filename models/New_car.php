@@ -3,7 +3,7 @@ class New_car
 {
     // DB stuff
     private $conn;
-    private $table = 'new_cae';
+    private $table = 'new_car';
 
     // Part Properties
     public $VIN;

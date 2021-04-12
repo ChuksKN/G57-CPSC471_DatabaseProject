@@ -42,16 +42,14 @@ class Facilitates_used_sale
     // Create query
     $query = 'SELECT *
                     FROM ' . $this->table . '
-                    WHERE EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN
+                    WHERE USaleID = ?
                     LIMIT 0,1';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
 
     // Bind ID
-    $stmt->bindParam(':EmployeeID', $this->EmployeeID);
-    $stmt->bindParam(':CustomerID', $this->CustomerID);
-    $stmt->bindParam(':VIN', $this->VIN);
+    $stmt->bindParam(1, $this->USaleID);
 
     // Execute query
     $stmt->execute();
@@ -59,7 +57,9 @@ class Facilitates_used_sale
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Set properties
-    $this->USaleID = $row['USaleID'];
+    $this->EmployeeID = $row['EmployeeID'];
+    $this->CustomerID = $row['CustomerID'];
+    $this->VIN = $row['VIN'];
     $this->USaleDate = $row['USaleDate'];
     $this->LPlateNo = $row['LPlateNo'];
     $this->PaymentMethod = $row['PaymentMethod'];

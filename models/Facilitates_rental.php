@@ -44,16 +44,14 @@ class Facilitates_rental
     // Create query
     $query = 'SELECT *
                     FROM ' . $this->table . '
-                    WHERE EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN
+                    WHERE RentalID = ?
                     LIMIT 0,1';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
 
     // Bind ID
-    $stmt->bindParam(':EmployeeID', $this->EmployeeID);
-    $stmt->bindParam(':CustomerID', $this->CustomerID);
-    $stmt->bindParam(':VIN', $this->VIN);
+    $stmt->bindParam(1, $this->RentalID);
 
     // Execute query
     $stmt->execute();
@@ -61,7 +59,9 @@ class Facilitates_rental
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Set properties
-    $this->RentalID = $row['RentalID'];
+	$this->EmployeeID = $row['EmployeeID'];
+    $this->CustomerID = $row['CustomerID'];
+    $this->VIN = $row['VIN'];
     $this->StartDate = $row['StartDate'];
     $this->ReturnDate = $row['ReturnDate'];
     $this->LPlateNo = $row['LPlateNo'];
