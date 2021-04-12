@@ -68,12 +68,13 @@
     // Create Post
     public function create() {
           // Create query
-          $query = 'INSERT INTO ' . $this->table . ' SET Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Address = :Address, Salary = :Salary, Super_EID = :Super_EID';
+          $query = 'INSERT INTO ' . $this->table . ' SET EmployeeID = :EmployeeID, Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Address = :Address, Salary = :Salary, Super_EID = :Super_EID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
 
           // Clean data
+          $this->EmployeeID = htmlspecialchars(strip_tags($this->EmployeeID));
           $this->Fname = htmlspecialchars(strip_tags($this->Fname));
           $this->Lname = htmlspecialchars(strip_tags($this->Lname));
           $this->DOB = htmlspecialchars(strip_tags($this->DOB));
@@ -84,6 +85,7 @@
           $this->Super_EID = htmlspecialchars(strip_tags($this->Super_EID));
 
           // Bind data
+          $stmt->bindParam(':Fname', $this->EmployeeID);
           $stmt->bindParam(':Fname', $this->Fname);
           $stmt->bindParam(':Lname', $this->Lname);
           $stmt->bindParam(':DOB', $this->DOB);
