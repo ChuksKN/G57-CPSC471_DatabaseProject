@@ -14,21 +14,31 @@ body {
 .myHomepage{
     color: #ebebe1ff;
     background-color: #323a44ff;
-    text-align: left;
+
+    /*text-align: left;*/
     padding-bottom: 5px;
-    padding-top: 10px;
+    padding-top: 5px;
     padding-left: 5px;
-    font-size: 20px;
+    /*font-size: 20px;*/
     font-weight: bold;
     font-family: "Fira Code Medium";
-    vertical-align: 5px;
 
+    /*width: 100%;*/
+
+
+}
+
+.topLeft{
+    margin: auto;
+    vertical-align: 5px;
+    font-size: 20px;
 }
 
 .topImage{
     vertical-align: middle;
     display: inline-block;
     margin-top: -10px;
+
 }
 
 .myAdmin{
@@ -55,6 +65,7 @@ body {
 }
 
 .adminHolder{
+    border-radius: 5px;
     display: inline-flex;
     width: 1628px;
     /*height: 20px;*/
@@ -71,9 +82,9 @@ body {
 
 li{
     list-style-type: none;
-    display: inline-grid;
+    display: inline-flex;
     margin: 20px;
-
+    align-self: center;
 }
 
 .box{
@@ -95,11 +106,43 @@ li{
     font-size: 30px;
 }
 
-.lineBox{
-    position: static;
+a{
+    display: inline-flex;
+    text-decoration: none;
+}
+
+ul.topRight{
+    display: inline;
+    vertical-align: -15px;
+    margin-left: 65%;
+}
+
+.topRight2{
+    display: inline;
+}
+
+.bellIcon{
+    vertical-align: 10px;
 
 }
 
-.no-bullet{
-    list-style-type: none
+.helpIcon{
+    vertical-align: 10px;
 }
+
+.profileIcon{
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+
+    background-color: #ebebe1ff;
+    border-radius: 100px;
+    border: 2px solid #5a5a5aff;
+}
+
+.threeButtons{
+    display: inline;
+    margin: auto;
+    padding-left: 85%;
+}
+
