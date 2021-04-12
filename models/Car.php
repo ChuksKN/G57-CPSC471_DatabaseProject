@@ -83,7 +83,7 @@ class Car
     public function create()
     {
         // Create query
-        $query = 'INSERT INTO' .
+        $query = 'INSERT INTO ' .
             $this->table . ' SET VIN = :VIN, Manufacturer = :Manufacturer, Make = :Make, Year = :Year, Engine = :Engine, Output = :Output, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, 
             Seating_capacity = :Seating_capacity, Torque = :Torque, Region = :Region, DRL = :DRL ';
 
@@ -129,7 +129,6 @@ class Car
 
         // Print error if something goes wrong
         printf("Error: %s.\n", $stmt->error);
-
         return false;
     }
 

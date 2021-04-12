@@ -68,7 +68,7 @@
     // Create Post
     public function create() {
           // Create query
-          $query = 'INSERT INTO ' . $this->table . ' SET EmployeeID = :EmployeeID';
+          $query = 'INSERT INTO' . $this->table . ' SET EmployeeID = :EmployeeID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
@@ -94,7 +94,7 @@
     public function update() {
           // Create query
           $query = 'UPDATE employee
-                    SET Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Address = : Address, PhoneNumber = :PhoneNumber, Salary = :Salary, Super_EID = :Super_EID
+                    SET Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Salary = :Salary, Super_SSN = :Super_SSN
                     WHERE EmployeeID = :EmployeeID';
 
           // Prepare statement
@@ -105,8 +105,6 @@
           $this->Lname = htmlspecialchars(strip_tags($this->Lname));
           $this->DOB = htmlspecialchars(strip_tags($this->DOB));
           $this->Email = htmlspecialchars(strip_tags($this->Email));
-          $this->Address = htmlspecialchars(strip_tags($this->Address));
-          $this->PhoneNumber = htmlspecialchars(strip_tags($this->PhoneNumber));
           $this->Salary = htmlspecialchars(strip_tags($this->Salary));
           $this->Super_EID = htmlspecialchars(strip_tags($this->Super_EID));
           $this->EmployeeID = htmlspecialchars(strip_tags($this->EmployeeID));
@@ -116,17 +114,14 @@
           $stmt->bindParam(':Lname', $this->Lname);
           $stmt->bindParam(':DOB', $this->DOB);
           $stmt->bindParam(':Email', $this->Email);
-          $stmt->bindParam(':Address', $this->Address);
-          $stmt->bindParam(':PhoneNumber', $this->PhoneNumber);
           $stmt->bindParam(':Salary', $this->Salary);
-          $stmt->bindParam(':Super_EID', $this->Super_EID);
+          $stmt->bindParam(':Super_SSN', $this->Super_EID);
           $stmt->bindParam(':EmployeeID', $this->EmployeeID);
 
           // Execute query
           if($stmt->execute()) {
             return true;
           }
-
           // Print error if something goes wrong
           printf("Error: %s.\n", $stmt->error);
 

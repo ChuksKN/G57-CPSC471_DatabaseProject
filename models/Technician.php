@@ -6,8 +6,8 @@
 
     // employee Properties
     public $EmployeeID;
-    public $FName;
-    public $LName;
+    public $Fname;
+    public $Lname;
     public $DOB;
     public $Email;
     public $Address;
@@ -35,13 +35,31 @@
       return $stmt;
     }
 
+    public function read_under() {
+      // Create query
+      $query = 'SELECT *
+                FROM employee NATURAL JOIN ' . $this->table . '
+                WHERE Super_EID = ?';
+
+      // Prepare statement
+      $stmt = $this->conn->prepare($query);
+
+      // Bind ID
+      $stmt->bindParam(1, $this->Super_EID);
+
+      // Execute query
+      $stmt->execute();
+
+      return $stmt;
+    }
+
     // Get Single Post
     public function read_single() {
           // Create query
           $query = 'SELECT *
-                    FROM employee  NATURAL JOIN ' . $this->table .
-                    'WHERE EmployeeID = ?
-                     LIMIT 0,1';
+                    FROM employee NATURAL JOIN ' . $this->table . '
+                    WHERE EmployeeID = ?
+                    LIMIT 0,1';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
@@ -55,8 +73,8 @@
           $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
           // Set properties
-          $this->FName = $row['FName'];
-          $this->LName = $row['LName'];
+          $this->Fname = $row['Fname'];
+          $this->Lname = $row['Lname'];
           $this->DOB = $row['DOB'];
           $this->Email = $row['Email'];
           $this->Address = $row['Address'];

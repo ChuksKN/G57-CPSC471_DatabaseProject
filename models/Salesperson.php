@@ -52,7 +52,7 @@
       $stmt->execute();
 
       return $stmt;
-}
+    }
 
     // Get Single Post
     public function read_single() {
