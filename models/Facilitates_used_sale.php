@@ -104,45 +104,44 @@ class Facilitates_used_sale
   }
 
   // Update Post
-  public function update()
-  {
-    // Create query
-    $query = 'UPDATE ' . $this->table . '
-                    SET USaleID = :USaleID, USaleDate = :USaleDate, RegistrationDetails = :RegistrationDetails, PaymentMethod = :PaymentMethod
-                    WHERE EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN';
+    public function update() {
+          // Create query
+          $query = 'UPDATE ' . $this->table . '
+                    SET  EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN, USaleDate = :USaleDate, USaleDate = :USaleDate, LPlateNo = :LPlateNo, PaymentMethod = :PaymentMethod
+                    WHERE USaleID = :USaleID';
 
-    // Prepare statement
-    $stmt = $this->conn->prepare($query);
+          // Prepare statement
+          $stmt = $this->conn->prepare($query);
 
-    // Clean data
-    $this->EmployeeID = htmlspecialchars(strip_tags($this->EmployeeID));
-    $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
-    $this->VIN = htmlspecialchars(strip_tags($this->VIN));
-    $this->USaleID = htmlspecialchars(strip_tags($this->USaleID));
-    $this->USaleDate = htmlspecialchars(strip_tags($this->USaleDate));
-    $this->LPlateNo = htmlspecialchars(strip_tags($this->LPlateNo));
-    $this->PaymentMethod = htmlspecialchars(strip_tags($this->PaymentMethod));
+          // Clean data
+          $this->EmployeeID = htmlspecialchars(strip_tags($this->EmployeeID));
+          $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
+          $this->VIN = htmlspecialchars(strip_tags($this->VIN));
+          $this->USaleID = htmlspecialchars(strip_tags($this->USaleID));
+          $this->USaleDate = htmlspecialchars(strip_tags($this->USaleDate));
+          $this->LPlateNo = htmlspecialchars(strip_tags($this->LPlateNo));
+          $this->PaymentMethod = htmlspecialchars(strip_tags($this->PaymentMethod));
 
-    // Bind data
-    $stmt->bindParam(':EmployeeID', $this->EmployeeID);
-    $stmt->bindParam(':CustomerID', $this->CustomerID);
-    $stmt->bindParam(':VIN', $this->VIN);
-    $stmt->bindParam(':USaleID', $this->USaleID);
-    $stmt->bindParam(':USaleDate', $this->USaleDate);
-    $stmt->bindParam(':LPlateNo', $this->LPlateNo);
-    $stmt->bindParam(':PaymentMethod', $this->PaymentMethod);
-    $stmt->bindParam(':EmployeeID', $this->EmployeeID);
+          // Bind data
+          $stmt->bindParam(':EmployeeID', $this->EmployeeID);
+          $stmt->bindParam(':CustomerID', $this->CustomerID);
+          $stmt->bindParam(':VIN', $this->VIN);
+          $stmt->bindParam(':USaleID', $this->USaleID);
+          $stmt->bindParam(':USaleDate', $this->USaleDate);
+          $stmt->bindParam(':LPlateNo', $this->LPlateNo);
+          $stmt->bindParam(':PaymentMethod', $this->PaymentMethod);
+          
 
-    // Execute query
-    if ($stmt->execute()) {
-      return true;
+          // Execute query
+          if($stmt->execute()) {
+            return true;
+          }
+
+          // Print error if something goes wrong
+          printf("Error: %s.\n", $stmt->error);
+
+          return false;
     }
-
-    // Print error if something goes wrong
-    printf("Error: %s.\n", $stmt->error);
-
-    return false;
-  }
 
   // Delete Post
   public function delete()
