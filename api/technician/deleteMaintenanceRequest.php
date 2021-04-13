@@ -51,9 +51,24 @@
                   );
               }
               else{
-                  echo json_encode(
-                      array('message' => 'Failed To Delete Maintenance Request')
-                  );
+                    if(!is_null($handler->errormsg))
+                    {
+                        echo json_encode(
+                            array('message' => 'Failed To Delete Maintenance Request. '.$handler->errormsg)
+                        );
+                    }
+                    else if(!is_null($request->errormsg))
+                    {
+                        echo json_encode(
+                            array('message' => 'Failed To Delete Maintenance Request. '.$request->errormsg)
+                        );
+                    }
+                    else
+                    {
+                        echo json_encode(
+                            array('message' => 'Failed To Delete Maintenance Request.')
+                        );
+                    }
               }
         }
         else

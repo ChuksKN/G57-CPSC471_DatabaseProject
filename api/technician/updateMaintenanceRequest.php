@@ -52,9 +52,17 @@
                   );
               }
               else{
-                  echo json_encode(
-                      array('message' => 'Failed to update Maintenance Request')
-                  );
+                    if(is_null($request->errormsg))
+                    {
+                        echo json_encode(
+                        array('message' => 'Failed to update Maintenance Request')
+                        );
+                    }
+                    else{
+                        echo json_encode(
+                            array('message' => 'Failed to update Maintenance Request. Error '.$request->errormsg)
+                            );
+                    }
               }
         }
         else

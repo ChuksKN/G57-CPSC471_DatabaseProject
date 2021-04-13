@@ -28,6 +28,6 @@
     );
   } else {
     echo json_encode(
-      array('message' => 'Unsuccessful.')
+      array('message' => 'Unsuccessful. '.$request->errormsg)
     );
   }
