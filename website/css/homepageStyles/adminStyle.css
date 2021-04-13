@@ -23,9 +23,6 @@ body {
     font-weight: bold;
     font-family: "Fira Code Medium";
 
-    /*width: 100%;*/
-
-
 }
 
 .topLeft{
@@ -61,7 +58,7 @@ body {
 .menuHolder{
     background-color: #ecececff;
     border-left: 0px #ecececff;
-    height: 600px;
+    height: 500px;
 }
 
 .adminHolder{
@@ -91,10 +88,8 @@ li{
     display: inline-block;
     width: 340px;
     height: 168px;
-    margin-top: 50px;
 
     background-color: #ffffffff;
-
     border-radius: 4px;
     border: 2px solid #323a44ff;
 
