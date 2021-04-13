@@ -50,7 +50,7 @@ class Facilitates_new_sale
     $stmt = $this->conn->prepare($query);
 
     // Bind ID
-    $stmt->bindParam(':SaleID', $this->SaleID);
+    $stmt->bindParam(1, $this->SaleID);
 
     // Execute query
     $stmt->execute();
