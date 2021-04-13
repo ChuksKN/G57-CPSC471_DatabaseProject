@@ -46,7 +46,7 @@ class CarOwner
         $stmt = $this->conn->prepare($query);
 
         // Bind ID
-        $stmt->bindParam(':CustomerID', $this->CustomerID);
+        $stmt->bindParam(1, $this->CustomerID);
 
         // Execute query
         $stmt->execute();
