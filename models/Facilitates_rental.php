@@ -59,7 +59,7 @@ class Facilitates_rental
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Set properties
-	$this->EmployeeID = $row['EmployeeID'];
+    $this->EmployeeID = $row['EmployeeID'];
     $this->CustomerID = $row['CustomerID'];
     $this->VIN = $row['VIN'];
     $this->StartDate = $row['StartDate'];
@@ -73,7 +73,7 @@ class Facilitates_rental
   public function create()
   {
     // Create query
-    $query = 'INSERT INTO ' . $this->table . ' SET EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN, RentalID = :RentalID, StartDate = :StartDate, ReturnDate = :ReturnDate, RentalDetails = :RentalDetails, PaymentMethod = :PaymentMethod';
+    $query = 'INSERT INTO ' . $this->table . ' SET EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN, RentalID = :RentalID, StartDate = :StartDate, ReturnDate = :ReturnDate, LPlateNo = :LPlateNo, RentalDetails = :RentalDetails, PaymentMethod = :PaymentMethod';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
@@ -116,8 +116,8 @@ class Facilitates_rental
   {
     // Create query
     $query = 'UPDATE ' . $this->table . '
-                    SET Fname = RentalID = :RentalID, StartDate = :StartDate, ReturnDate = :ReturnDate, RentalDetails = :RentalDetails, PaymentMethod = :PaymentMethod
-                    WHERE EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN';
+                    SET EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN, StartDate = :StartDate, ReturnDate = :ReturnDate, RentalDetails = :RentalDetails, LPlateNo = :LPlateNo, PaymentMethod = :PaymentMethod
+                    WHERE RentalID = :RentalID';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
