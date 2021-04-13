@@ -12,7 +12,7 @@ include_once '../../models/Facilitates_rental.php';
 $database = new Database();
 $db = $database->connect();
 
-// Instantiate blog post object
+// Instantiate rental object
 $rental = new Facilitates_rental($db);
 
 // Get raw posted data
@@ -33,7 +33,7 @@ $rental->ReturnDate = $data->ReturnDate;
 // Update post
 if ($rental->update()) {
   echo json_encode(
-    array('Succes!' => 'Car Rental Updated')
+    array('Success!' => 'Car Rental Updated')
   );
 } else {
   echo json_encode(
