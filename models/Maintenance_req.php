@@ -9,6 +9,7 @@ class Maintenance_req
     public $WorkOrderID;
     public $WorkCost;
     public $Request_Date;
+    public $errormsg = null;
 
     // Constructor with DB
     public function __construct($db)
@@ -35,88 +36,106 @@ class Maintenance_req
     // Create Post
     public function create()
     {
-        // Create query
-        $query = 'INSERT INTO ' . $this->table . ' SET WorkOrderID = :WorkOrderID, WorkCost = :WorkCost, Request_Date = :Request_Date';
+        try{
+            // Create query
+            $query = 'INSERT INTO ' . $this->table . ' SET WorkOrderID = :WorkOrderID, WorkCost = :WorkCost, Request_Date = :Request_Date';
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
 
-        // Clean data
-        $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
-        $this->WorkCost = htmlspecialchars(strip_tags($this->WorkCost));
-        $this->Request_Date = htmlspecialchars(strip_tags($this->Request_Date));
+            // Clean data
+            $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
+            $this->WorkCost = htmlspecialchars(strip_tags($this->WorkCost));
+            $this->Request_Date = htmlspecialchars(strip_tags($this->Request_Date));
 
-        // Bind data
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
-        $stmt->bindParam(':WorkCost', $this->WorkCost);
-        $stmt->bindParam(':Request_Date', $this->Request_Date);
+            // Bind data
+            $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
+            $stmt->bindParam(':WorkCost', $this->WorkCost);
+            $stmt->bindParam(':Request_Date', $this->Request_Date);
 
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+
+            return false;
         }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+        catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
+        }
     }
 
     // Update Post
     public function update()
     {
-        // Create query
-        $query = 'UPDATE ' . $this->table . '
-                    SET WorkCost = :WorkCost, Request_Date = :Request_Date
-                    WHERE WorkOrderID = :WorkOrderID';
+        try{
+            // Create query
+            $query = 'UPDATE ' . $this->table . '
+                        SET WorkCost = :WorkCost, Request_Date = :Request_Date
+                        WHERE WorkOrderID = :WorkOrderID';
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
 
-        // Clean data
-        $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
-        $this->WorkCost = htmlspecialchars(strip_tags($this->WorkCost));
-        $this->Request_Date = htmlspecialchars(strip_tags($this->Request_Date));
+            // Clean data
+            $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
+            $this->WorkCost = htmlspecialchars(strip_tags($this->WorkCost));
+            $this->Request_Date = htmlspecialchars(strip_tags($this->Request_Date));
 
-        // Bind data
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
-        $stmt->bindParam(':WorkCost', $this->WorkCost);
-        $stmt->bindParam(':Request_Date', $this->Request_Date);
+            // Bind data
+            $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
+            $stmt->bindParam(':WorkCost', $this->WorkCost);
+            $stmt->bindParam(':Request_Date', $this->Request_Date);
 
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+
+            return false;
         }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+        catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
+        }
     }
 
     // Delete Post
     public function delete()
     {
-        // Create query
-        $query = 'DELETE FROM ' . $this->table . ' WHERE WorkOrderID = :WorkOrderID';
+        try{
+            // Create query
+            $query = 'DELETE FROM ' . $this->table . ' WHERE WorkOrderID = :WorkOrderID';
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
 
-        // Clean data
-        $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
+            // Clean data
+            $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
 
-        // Bind data
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
+            // Bind data
+            $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
 
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+
+            return false;
         }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+        catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
+        }
     }
 }
