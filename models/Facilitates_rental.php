@@ -143,7 +143,6 @@ class Facilitates_rental
     $stmt->bindParam(':LPlateNo', $this->LPlateNo);
     $stmt->bindParam(':RentalDetails', $this->RentalDetails);
     $stmt->bindParam(':PaymentMethod', $this->PaymentMethod);
-    $stmt->bindParam(':EmployeeID', $this->EmployeeID);
 
     // Execute query
     if ($stmt->execute()) {

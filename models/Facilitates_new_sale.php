@@ -113,7 +113,7 @@ class Facilitates_new_sale
   {
     // Create query
     $query = 'UPDATE ' . $this->table . '
-                    SET EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN, SaleDate = :SaleDate, RegistrationDetails = :RegistrationDetails, Method_of_Payment = :Method_of_Payment
+                    SET EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN, SaleDate = :SaleDate, LPlateNo = :LPlateNo, RegistrationDetails = :RegistrationDetails, Method_of_Payment = :Method_of_Payment
                     WHERE SaleID = :SaleID';
 
     // Prepare statement
@@ -138,7 +138,6 @@ class Facilitates_new_sale
     $stmt->bindParam(':LPlateNo', $this->LPlateNo);
     $stmt->bindParam(':RegistrationDetails', $this->RegistrationDetails);
     $stmt->bindParam(':Method_of_Payment', $this->Method_of_Payment);
-    $stmt->bindParam(':EmployeeID', $this->EmployeeID);
 
     // Execute query
     if ($stmt->execute()) {
