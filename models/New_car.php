@@ -3,7 +3,7 @@ class New_car
 {
     // DB stuff
     private $conn;
-    private $table = 'new_cae';
+    private $table = 'new_car';
 
     // Part Properties
     public $VIN;
@@ -79,6 +79,26 @@ class New_car
         $this->DRL = $row['DRL'];
     }
 
+    // Get VIN from Post
+    public function check_vin()
+    {
+        // Create query
+        $query = 'SELECT *
+                      FROM car NATURAL JOIN ' . $this->table . '
+                      WHERE VIN = ?';
+
+        // Prepare statement
+        $stmt = $this->conn->prepare($query);
+
+        // Bind ID
+        $stmt->bindParam(1, $this->VIN);
+
+        // Execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     // Create Post
     public function create()
     {
@@ -110,7 +130,7 @@ class New_car
     {
         // Create query
         $query = 'UPDATE car
-                    SET Manufacturer = :Manufacturer, Make = :Make, `Year` = :`Year`, Engine = :Engine, `Output` = :`Output`, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, 
+                    SET Manufacturer = :Manufacturer, Make = :Make, Year = :Year, Engine = :Engine, Output = :Output, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, 
                     Seating_capacity = :Seating_capacity, Torque = :Torque, Region = :Region, DRL = :DRL
                     WHERE VIN = :VIN';
 

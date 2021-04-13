@@ -137,8 +137,7 @@ class Car
     {
         // Create query
         $query = 'UPDATE ' . $this->table . '
-                    SET Manufacturer = :Manufacturer, Make = :Make, `Year` = :`Year`, Engine = :Engine, `Output` = :`Output`, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, 
-                    Seating_capacity = :Seating_capacity, Torque = :Torque, Region = :Region, DRL = :DRL
+                    SET Manufacturer = :Manufacturer, Make = :Make, Year = :Year, Engine = :Engine, Output = :Output, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, Seating_capacity = :Seating_capacity, Torque = :Torque, Region = :Region, DRL = :DRL
                     WHERE VIN = :VIN';
 
         // Prepare statement
