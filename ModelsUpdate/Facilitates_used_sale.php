@@ -103,8 +103,8 @@
     public function update() {
           // Create query
           $query = 'UPDATE ' . $this->table . '
-                    SET USaleID = :USaleID, USaleDate = :USaleDate, RegistrationDetails = :RegistrationDetails, PaymentMethod = :PaymentMethod
-                    WHERE EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN';
+                    SET  EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN, USaleDate = :USaleDate, USaleDate = :USaleDate, LPlateNo = :LPlateNo, PaymentMethod = :PaymentMethod
+                    WHERE USaleID = :USaleID';
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);
@@ -126,7 +126,7 @@
           $stmt->bindParam(':USaleDate', $this->USaleDate);
           $stmt->bindParam(':LPlateNo', $this->LPlateNo);
           $stmt->bindParam(':PaymentMethod', $this->PaymentMethod);
-          $stmt->bindParam(':EmployeeID', $this->EmployeeID);
+          
 
           // Execute query
           if($stmt->execute()) {
