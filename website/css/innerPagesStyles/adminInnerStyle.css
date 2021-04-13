@@ -249,8 +249,77 @@ ul{
 }
 
 .accountCreatorBox{
-    background-color: red;
-    height: 10px;
-    width: 100%;
+    background-color: #ffffffff;
+    height: 55%;
+    width: 80%;
+
+    margin-left: 40px;
+    margin-top: 10px;
+
+    border: 2px solid #323a44ff;
+    border-radius: 7px;
+}
+
+.query{
+    background-color: #ecececff;
+    height: 4%;
+    width: 80%;
+
+    margin-left: 40px;
+    margin-top: 10px;
+
+    border: 2px solid #323a44ff;
+    border-radius: 7px;
+
+    font-size: 25px;
+}
+
+.textMiddle{
+    display: inline;
+    vertical-align: -6px;
+}
+
+.bluePlus{
+    vertical-align: -12px;
+    margin-left: 15px;
+}
+
+.addInformation li{
+    display: inline-block;
+    margin-left: 20px;
+    padding: 60px;
+
+}
+
+.options{
+    margin-top: 120px;
+    margin-left: 30px;
+}
+
+.addButton{
+    font-family: "Fira Code";
+    font-weight: bold;
+    background-color: #0078d4ff;
+    color: #ebebe1ff;
+    border-color: #ffffffff;
+    border-radius: 5px;
+    border-style: solid;
+    font-size: 20px;
+    height: 40px;
+    width: 80px;
+
+}
+
+.clearButton{
+    font-family: "Fira Code";
+    font-weight: bold;
+    background-color: #ffffffff;
+    color: #323a44ff;
+    border-color: #0078d4ff;
+    border-radius: 5px;
+    border-style: solid;
+    font-size: 20px;
+    height: 40px;
+    width: 80px;
 
 }
