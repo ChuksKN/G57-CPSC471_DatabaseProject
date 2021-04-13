@@ -31,7 +31,16 @@
       array('message' => 'Part information Updated')
     );
   } else {
-    echo json_encode(
-      array('message' => 'Part information did not update.')
-    );
+    if(is_null($part->errormsg))
+    {
+        echo json_encode(
+          array('message' => 'Part information did not update.')
+        );
+    }
+    else
+    {
+      echo json_encode(
+        array('message' => 'Part information did not update. '.$part->errormsg)
+      );
+    }
   }

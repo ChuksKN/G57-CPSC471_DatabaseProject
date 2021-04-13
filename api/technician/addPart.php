@@ -29,7 +29,16 @@
       array('message' => 'Part successfully added.')
     );
   } else {
-    echo json_encode(
-      array('message' => 'Unsuccessful.')
-    );
+    if(is_null($part->errormsg))
+    {
+      echo json_encode(
+        array('message' => 'Unsuccessful.')
+      );
+    }
+    else
+    {
+      echo json_encode(
+        array('message' => 'Unsuccessful. '.$part->errormsg)
+      );
+    }
   }

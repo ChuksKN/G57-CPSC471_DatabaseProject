@@ -27,7 +27,16 @@
       array('message' => 'Request successfully assigned to Employee: '.$request->EmployeeID)
     );
   } else {
-    echo json_encode(
-      array('message' => 'Unsuccessful. '.$request->errormsg)
-    );
+    if(is_null($request->errormsg))
+    {
+        echo json_encode(
+          array('message' => 'Unsuccessful.')
+        );
+    }
+    else
+    {
+      echo json_encode(
+        array('message' => 'Unsuccessful. '.$request->errormsg)
+      );
+    }
   }
