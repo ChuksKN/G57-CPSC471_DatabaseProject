@@ -72,7 +72,7 @@ class Facilitates_new_sale
   public function create()
   {
     // Create query
-    $query = 'INSERT INTO ' . $this->table . ' SET EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN, SaleID = :SaleID, SaleDate = :SaleDate, RegistrationDetails = :RegistrationDetails, Method_of_Payment = :Method_of_Payment';
+    $query = 'INSERT INTO ' . $this->table . ' SET EmployeeID = :EmployeeID, CustomerID = :CustomerID, VIN = :VIN, SaleID = :SaleID, SaleDate = :SaleDate, LPlateNo = :LPlateNo, RegistrationDetails = :RegistrationDetails, Method_of_Payment = :Method_of_Payment';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
