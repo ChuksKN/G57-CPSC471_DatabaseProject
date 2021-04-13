@@ -14,6 +14,7 @@
     public $Salary;
     public $Super_EID;
     public $T_grade;
+    public $errormsg = null;
 
     // Constructor with DB
     public function __construct($db) {
@@ -86,6 +87,7 @@
 
     // Create Post
     public function create() {
+      try{
           // Create query
           $query = 'INSERT INTO ' . $this->table . ' SET EmployeeID = :EmployeeID, T_grade = :T_grade';
 
@@ -104,16 +106,22 @@
           // Execute query
           if($stmt->execute()) {
             return true;
-      }
+          }
 
-      // Print error if something goes wrong
-      printf("Error: %s.\n", $stmt->error);
+          // Print error if something goes wrong
+          printf("Error: %s.\n", $stmt->error);
 
-      return false;
+          return false;
+        }
+        catch(Exception $e){
+          $this->errormsg = $e->getMessage();
+          return false;
+        }
     }
 
     // Update Post
     public function update() {
+      try{
           // Create query
           $query = 'UPDATE ' . $this->table . '
                     SET T_grade = :T_grade
@@ -139,11 +147,16 @@
           printf("Error: %s.\n", $stmt->error);
 
           return false;
+        }
+        catch(Exception $e){
+          $this->errormsg = $e->getMessage();
+          return false;
+        }
     }
 
     // Delete Post
     public function delete() {
-
+      try{
           // Create query
           $query = 'DELETE FROM ' . $this->table . ' WHERE EmployeeID = :EmployeeID';
 
@@ -165,6 +178,11 @@
           printf("Error: %s.\n", $stmt->error);
 
           return false;
+      }
+      catch(Exception $e){
+        $this->errormsg = $e->getMessage();
+        return false;
+      }
     }
     
   }

@@ -14,6 +14,7 @@
     public $PhoneNumber;
     public $Salary;
     public $Super_EID;
+    public $erromsg = null;
 
     // Constructor with DB
     public function __construct($db) {
@@ -86,6 +87,7 @@
 
     // Create Post
     public function create() {
+      try{
           // Create query
           $query = 'INSERT INTO ' . $this->table . ' SET EmployeeID = :EmployeeID';
 
@@ -101,16 +103,22 @@
           // Execute query
           if($stmt->execute()) {
             return true;
+          }
+
+          // Print error if something goes wrong
+          printf("Error: %s.\n", $stmt->error);
+
+          return false;
       }
-
-      // Print error if something goes wrong
-      printf("Error: %s.\n", $stmt->error);
-
-      return false;
+      catch(Exception $e){
+        $this->errormsg = $e->getMessage();
+        return false;
+      }
     }
 
     // Update Post
     public function update() {
+      try{
           // Create query
           $query = 'UPDATE Employee
                     SET Fname = :Fname, Lname = :Lname, DOB = :DOB, Email = :Email, Address = :Address, PhoneNumber = :PhoneNumber, Salary = :Salary, Super_EID = :Super_EID
@@ -149,10 +157,16 @@
           printf("Error: %s.\n", $stmt->error);
 
           return false;
+        }
+        catch(Exception $e){
+          $this->errormsg = $e->getMessage();
+          return false;
+        }
     }
 
     // Delete Post
     public function delete() {
+      try{
 
           // Create query
           $query = 'DELETE FROM ' . $this->table . ' WHERE EmployeeID = :EmployeeID';
@@ -175,6 +189,11 @@
           printf("Error: %s.\n", $stmt->error);
 
           return false;
+        }
+        catch(Exception $e){
+          $this->errormsg = $e->getMessage();
+          return false;
+        }
     }
     
   }

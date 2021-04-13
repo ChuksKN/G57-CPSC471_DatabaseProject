@@ -20,6 +20,7 @@ class Car
     public $Torque;
     public $Region;
     public $DRL;
+    public $errormsg = null;
 
     // Constructor with DB
     public function __construct($db)
@@ -82,133 +83,152 @@ class Car
     // Create Post
     public function create()
     {
-        // Create query
-        $query = 'INSERT INTO ' .
-            $this->table . ' SET VIN = :VIN, Manufacturer = :Manufacturer, Make = :Make, Year = :Year, Engine = :Engine, Output = :Output, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, 
-            Seating_capacity = :Seating_capacity, Torque = :Torque, Region = :Region, DRL = :DRL ';
+        try{
+            // Create query
+            $query = 'INSERT INTO ' .
+                $this->table . ' SET VIN = :VIN, Manufacturer = :Manufacturer, Make = :Make, Year = :Year, Engine = :Engine, Output = :Output, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, 
+                Seating_capacity = :Seating_capacity, Torque = :Torque, Region = :Region, DRL = :DRL ';
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
 
-        // Clean data
-        $this->VIN = htmlspecialchars(strip_tags($this->VIN));
-        $this->Manufacturer = htmlspecialchars(strip_tags($this->Manufacturer));
-        $this->Make = htmlspecialchars(strip_tags($this->Make));
-        $this->Year = htmlspecialchars(strip_tags($this->Year));
-        $this->Engine = htmlspecialchars(strip_tags($this->Engine));
-        $this->Output = htmlspecialchars(strip_tags($this->Output));
-        $this->No_of_doors = htmlspecialchars(strip_tags($this->No_of_doors));
-        $this->Fuel_tank_cap = htmlspecialchars(strip_tags($this->Fuel_tank_cap));
-        $this->Transmission = htmlspecialchars(strip_tags($this->Transmission));
-        $this->Terrain = htmlspecialchars(strip_tags($this->Terrain));
-        $this->Seating_capacity = htmlspecialchars(strip_tags($this->Seating_capacity));
-        $this->Torque = htmlspecialchars(strip_tags($this->Torque));
-        $this->Region = htmlspecialchars(strip_tags($this->Region));
-        $this->DRL = htmlspecialchars(strip_tags($this->DRL));
+            // Clean data
+            $this->VIN = htmlspecialchars(strip_tags($this->VIN));
+            $this->Manufacturer = htmlspecialchars(strip_tags($this->Manufacturer));
+            $this->Make = htmlspecialchars(strip_tags($this->Make));
+            $this->Year = htmlspecialchars(strip_tags($this->Year));
+            $this->Engine = htmlspecialchars(strip_tags($this->Engine));
+            $this->Output = htmlspecialchars(strip_tags($this->Output));
+            $this->No_of_doors = htmlspecialchars(strip_tags($this->No_of_doors));
+            $this->Fuel_tank_cap = htmlspecialchars(strip_tags($this->Fuel_tank_cap));
+            $this->Transmission = htmlspecialchars(strip_tags($this->Transmission));
+            $this->Terrain = htmlspecialchars(strip_tags($this->Terrain));
+            $this->Seating_capacity = htmlspecialchars(strip_tags($this->Seating_capacity));
+            $this->Torque = htmlspecialchars(strip_tags($this->Torque));
+            $this->Region = htmlspecialchars(strip_tags($this->Region));
+            $this->DRL = htmlspecialchars(strip_tags($this->DRL));
 
-        // Bind data
-        $stmt->bindParam(':VIN', $this->VIN);
-        $stmt->bindParam(':Manufacturer', $this->Manufacturer);
-        $stmt->bindParam(':Make', $this->Make);
-        $stmt->bindParam(':Year', $this->Year);
-        $stmt->bindParam(':Engine', $this->Engine);
-        $stmt->bindParam(':Output', $this->Output);
-        $stmt->bindParam(':No_of_doors', $this->No_of_doors);
-        $stmt->bindParam(':Fuel_tank_cap', $this->Fuel_tank_cap);
-        $stmt->bindParam(':Transmission', $this->Transmission);
-        $stmt->bindParam(':Terrain', $this->Terrain);
-        $stmt->bindParam(':Seating_capacity', $this->Seating_capacity);
-        $stmt->bindParam(':Torque', $this->Torque);
-        $stmt->bindParam(':Region', $this->Region);
-        $stmt->bindParam(':DRL', $this->DRL);
+            // Bind data
+            $stmt->bindParam(':VIN', $this->VIN);
+            $stmt->bindParam(':Manufacturer', $this->Manufacturer);
+            $stmt->bindParam(':Make', $this->Make);
+            $stmt->bindParam(':Year', $this->Year);
+            $stmt->bindParam(':Engine', $this->Engine);
+            $stmt->bindParam(':Output', $this->Output);
+            $stmt->bindParam(':No_of_doors', $this->No_of_doors);
+            $stmt->bindParam(':Fuel_tank_cap', $this->Fuel_tank_cap);
+            $stmt->bindParam(':Transmission', $this->Transmission);
+            $stmt->bindParam(':Terrain', $this->Terrain);
+            $stmt->bindParam(':Seating_capacity', $this->Seating_capacity);
+            $stmt->bindParam(':Torque', $this->Torque);
+            $stmt->bindParam(':Region', $this->Region);
+            $stmt->bindParam(':DRL', $this->DRL);
 
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+            return false;
+        }
+        catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
         }
 
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-        return false;
     }
 
     // Update Post
     public function update()
     {
-        // Create query
-        $query = 'UPDATE ' . $this->table . '
-                    SET Manufacturer = :Manufacturer, Make = :Make, Year = :Year, Engine = :Engine, Output = :Output, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, Seating_capacity = :Seating_capacity, Torque = :Torque, Region = :Region, DRL = :DRL
-                    WHERE VIN = :VIN';
+        try{
+            // Create query
+            $query = 'UPDATE ' . $this->table . '
+                        SET Manufacturer = :Manufacturer, Make = :Make, `Year` = :`Year`, Engine = :Engine, `Output` = :`Output`, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, 
+                        Seating_capacity = :Seating_capacity, Torque = :Torque, Region = :Region, DRL = :DRL
+                        WHERE VIN = :VIN';
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
 
-        // Clean data
-        $this->Manufacturer = htmlspecialchars(strip_tags($this->Manufacturer));
-        $this->Make = htmlspecialchars(strip_tags($this->Make));
-        $this->Year = htmlspecialchars(strip_tags($this->Year));
-        $this->Engine = htmlspecialchars(strip_tags($this->Engine));
-        $this->Output = htmlspecialchars(strip_tags($this->Output));
-        $this->No_of_doors = htmlspecialchars(strip_tags($this->No_of_doors));
-        $this->Fuel_tank_cap = htmlspecialchars(strip_tags($this->Fuel_tank_cap));
-        $this->Transmission = htmlspecialchars(strip_tags($this->Transmission));
-        $this->Terrain = htmlspecialchars(strip_tags($this->Terrain));
-        $this->Seating_capacity = htmlspecialchars(strip_tags($this->Seating_capacity));
-        $this->Torque = htmlspecialchars(strip_tags($this->Torque));
-        $this->Region = htmlspecialchars(strip_tags($this->Region));
-        $this->DRL = htmlspecialchars(strip_tags($this->DRL));
+            // Clean data
+            $this->Manufacturer = htmlspecialchars(strip_tags($this->Manufacturer));
+            $this->Make = htmlspecialchars(strip_tags($this->Make));
+            $this->Year = htmlspecialchars(strip_tags($this->Year));
+            $this->Engine = htmlspecialchars(strip_tags($this->Engine));
+            $this->Output = htmlspecialchars(strip_tags($this->Output));
+            $this->No_of_doors = htmlspecialchars(strip_tags($this->No_of_doors));
+            $this->Fuel_tank_cap = htmlspecialchars(strip_tags($this->Fuel_tank_cap));
+            $this->Transmission = htmlspecialchars(strip_tags($this->Transmission));
+            $this->Terrain = htmlspecialchars(strip_tags($this->Terrain));
+            $this->Seating_capacity = htmlspecialchars(strip_tags($this->Seating_capacity));
+            $this->Torque = htmlspecialchars(strip_tags($this->Torque));
+            $this->Region = htmlspecialchars(strip_tags($this->Region));
+            $this->DRL = htmlspecialchars(strip_tags($this->DRL));
 
-        // Bind data
-        $stmt->bindParam(':VIN', $this->VIN);
-        $stmt->bindParam(':Manufacturer', $this->Manufacturer);
-        $stmt->bindParam(':Make', $this->Make);
-        $stmt->bindParam(':Year', $this->Year);
-        $stmt->bindParam(':Engine', $this->Engine);
-        $stmt->bindParam(':Output', $this->Output);
-        $stmt->bindParam(':No_of_doors', $this->No_of_doors);
-        $stmt->bindParam(':Fuel_tank_cap', $this->Fuel_tank_cap);
-        $stmt->bindParam(':Transmission', $this->Transmission);
-        $stmt->bindParam(':Terrain', $this->Terrain);
-        $stmt->bindParam(':Seating_capacity', $this->Seating_capacity);
-        $stmt->bindParam(':Torque', $this->Torque);
-        $stmt->bindParam(':Region', $this->Region);
-        $stmt->bindParam(':DRL', $this->DRL);
+            // Bind data
+            $stmt->bindParam(':VIN', $this->VIN);
+            $stmt->bindParam(':Manufacturer', $this->Manufacturer);
+            $stmt->bindParam(':Make', $this->Make);
+            $stmt->bindParam(':Year', $this->Year);
+            $stmt->bindParam(':Engine', $this->Engine);
+            $stmt->bindParam(':Output', $this->Output);
+            $stmt->bindParam(':No_of_doors', $this->No_of_doors);
+            $stmt->bindParam(':Fuel_tank_cap', $this->Fuel_tank_cap);
+            $stmt->bindParam(':Transmission', $this->Transmission);
+            $stmt->bindParam(':Terrain', $this->Terrain);
+            $stmt->bindParam(':Seating_capacity', $this->Seating_capacity);
+            $stmt->bindParam(':Torque', $this->Torque);
+            $stmt->bindParam(':Region', $this->Region);
+            $stmt->bindParam(':DRL', $this->DRL);
 
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+
+            return false;
         }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+        catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
+        }
     }
 
     // Delete Post
     public function delete()
     {
+        try{
+            // Create query
+            $query = 'DELETE FROM ' . $this->table . ' WHERE VIN = :VIN';
 
-        // Create query
-        $query = 'DELETE FROM ' . $this->table . ' WHERE VIN = :VIN';
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
+            // Clean data
+            $this->VIN = htmlspecialchars(strip_tags($this->VIN));
 
-        // Clean data
-        $this->VIN = htmlspecialchars(strip_tags($this->VIN));
+            // Bind data
+            $stmt->bindParam(':VIN', $this->VIN);
 
-        // Bind data
-        $stmt->bindParam(':VIN', $this->VIN);
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
 
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+
+            return false;
         }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+        catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
+        }
     }
 }
