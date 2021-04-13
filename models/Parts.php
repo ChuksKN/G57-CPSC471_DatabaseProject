@@ -9,6 +9,7 @@
     public $Part_Desc;
     public $PartName;
     public $Price;
+    public $errormsg = null;
 
     // Constructor with DB
     public function __construct($db) {
@@ -47,6 +48,7 @@
 
     // Create Post
     public function create() {
+      try{
           // Create query
           $query = 'INSERT INTO ' . $this->table . ' SET PartID = :PartID, Part_Desc = :Part_Desc, PartName = :PartName, Price = :Price';
 
@@ -67,16 +69,22 @@
           // Execute query
           if($stmt->execute()) {
             return true;
+          }
+
+          // Print error if something goes wrong
+          printf("Error: %s.\n", $stmt->error);
+
+          return false;
       }
-
-      // Print error if something goes wrong
-      printf("Error: %s.\n", $stmt->error);
-
-      return false;
+      catch(Exception $e){
+        $this->errormsg = $e->getMessage();
+        return false;
+      }
     }
 
     // Update Post
     public function update() {
+      try{
           // Create query
           $query = 'UPDATE ' . $this->table . ' SET Part_Desc = :Part_Desc, PartName = :PartName, Price = :Price WHERE PartID = :PartID';
 
@@ -97,18 +105,29 @@
 
           // Execute query
           if($stmt->execute()) {
-            return true;
+            if($stmt->rowCount() == 0)
+                {
+                    $this->errormsg = 'No row was effected. WorkOrderID may be invalid.';
+                    return false;
+                }
+                return true;
           }
 
           // Print error if something goes wrong
           printf("Error: %s.\n", $stmt->error);
 
           return false;
+        }
+        catch(Exception $e){
+          $this->errormsg = $e->getMessage();
+          return false;
+        }
     }
 
     // Delete Post
     public function delete() {
 
+      try{
           // Create query
           $query = 'DELETE FROM ' . $this->table . ' WHERE PartID = :PartID';
 
@@ -130,6 +149,11 @@
           printf("Error: %s.\n", $stmt->error);
 
           return false;
+        }
+        catch(Exception $e){
+          $this->errormsg = $e->getMessage();
+          return false;
+        }
     }
     
   }

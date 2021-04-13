@@ -93,6 +93,11 @@ class Maintenance_req
 
             // Execute query
             if ($stmt->execute()) {
+                if($stmt->rowCount() == 0)
+                {
+                    $this->errormsg = 'No row was effected. WorkOrderID may be invalid.';
+                    return false;
+                }
                 return true;
             }
 
