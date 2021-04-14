@@ -1,3 +1,5 @@
+@import url(../fonts/fonts.css);
+
 body {
     background-color: #dfdfdfff;
     font-family: "Fira Code";
@@ -9,7 +11,7 @@ body {
     overflow: hidden;
 }
 
-.myHomepage{
+.myHomepage {
     color: #ebebe1ff;
     background-color: #323a44ff;
 
@@ -20,23 +22,21 @@ body {
     /*font-size: 20px;*/
     font-weight: bold;
     font-family: "Fira Code Medium";
-
 }
 
-.topLeft{
+.topLeft {
     margin: auto;
     vertical-align: 5px;
     font-size: 20px;
 }
 
-.topImage{
+.topImage {
     vertical-align: middle;
     display: inline-block;
     margin-top: -10px;
-
 }
 
-.myAdmin{
+.myAdmin {
     background-color: #ecececff;
     color: #323a44ff;
     text-align: left;
@@ -46,19 +46,17 @@ body {
     padding-bottom: 10px;
     padding-top: 10px;
     font-family: "Fira Code Light";
-
 }
 
-.separateLine{
+.separateLine {
     background-color: #323a44ff;
     border-left: #323a44ff;
     height: 3px;
     width: 12%;
     padding-left: 15px;
-
 }
 
-.separateLine2{
+.separateLine2 {
     background-color: #323a44ff;
     height: 950px;
     width: 3px;
@@ -68,29 +66,28 @@ body {
     margin-top: -84.5px;
 }
 
-ul.topRight{
+ul.topRight {
     display: inline;
     vertical-align: -15px;
     margin-left: 65%;
 }
 
-.topRight2{
+.topRight2 {
     display: inline;
     list-style-type: none;
     margin: 20px;
     align-self: center;
 }
 
-.bellIcon{
-    vertical-align: 10px;
-
-}
-
-.helpIcon{
+.bellIcon {
     vertical-align: 10px;
 }
 
-.profileIcon{
+.helpIcon {
+    vertical-align: 10px;
+}
+
+.profileIcon {
     display: inline-block;
     width: 45px;
     height: 45px;
@@ -100,7 +97,7 @@ ul.topRight{
     border: 2px solid #5a5a5aff;
 }
 
-.leftMenuContainer{
+.leftMenuContainer {
     background-color: #ecececff;
     color: #323a44ff;
     text-align: left;
@@ -116,7 +113,7 @@ ul.topRight{
     float: left;
 }
 
-.rightMenuContainer{
+.rightMenuContainer {
     background-color: #ffffffff;
     color: #323a44ff;
     height: 1080px;
@@ -126,31 +123,29 @@ ul.topRight{
     padding-left: 270px;
 }
 
-.bolderEmployee{
+.bolderEmployee {
     font-size: 40px;
     font-weight: bolder;
-
 }
 
-.description{
+.description {
     font-size: 20px;
     margin-top: -30px;
     padding-left: 20px;
 }
 
-li{
+li {
     list-style-type: none;
 }
 
-ul{
+ul {
     list-style-type: none;
 }
 
-.create{
-
+.create {
 }
 
-.selectionBox{
+.selectionBox {
     font-size: 26px;
     font-family: "Fira Code";
     margin-left: -80px;
@@ -165,10 +160,9 @@ ul{
     display: inline-list-item;
 
     text-align: left;
-
 }
 
-.notSelected{
+.notSelected {
     font-size: 26px;
     font-family: "Fira Code";
     margin-left: -80px;
@@ -180,39 +174,36 @@ ul{
     display: inline-list-item;
 
     text-align: left;
-
 }
 
-.plusImage{
+.plusImage {
     vertical-align: 1px;
 }
 
-.innerObjects{
+.innerObjects {
     margin: 5px;
     font-size: 17px;
     font-family: "Fira Code";
-
 }
 
-.selector{
+.selector {
     background-color: #0078d4ff;
     height: 20px;
     width: 4px;
     float: left;
 
     margin-left: -50px;
-
 }
 
-.pageSelected{
+.pageSelected {
     font-weight: bolder;
 }
 
-.pageNotSelected{
+.pageNotSelected {
     font-weight: normal;
 }
 
-.backButton{
+.backButton {
     font-family: "Fira Code";
     font-weight: bold;
     color: #3e84deff;
@@ -220,33 +211,32 @@ ul{
     /*float: left;*/
 
     display: inline;
-
 }
 
-.lineSplitBottom{
+.lineSplitBottom {
     padding-top: 410px;
     padding-left: 12px;
 }
 
-.backGroup{
+.backGroup {
     text-decoration: none;
     display: inline;
     padding-left: 60px;
 }
 
-.otherPagesInner{
+.otherPagesInner {
     text-decoration: none;
     color: #323a44ff;
 }
 
-.underLine{
+.underLine {
     background-color: #323a44ff;
     height: 3px;
     width: 100%;
     margin-left: -23px;
 }
 
-.accountCreatorBox{
+.accountCreatorBox {
     background-color: #ffffffff;
     height: 55%;
     width: 80%;
@@ -258,7 +248,7 @@ ul{
     border-radius: 7px;
 }
 
-.query{
+.query {
     background-color: #ecececff;
     height: 4%;
     width: 80%;
@@ -272,35 +262,34 @@ ul{
     font-size: 25px;
 }
 
-.textMiddle{
+.textMiddle {
     display: inline;
     vertical-align: -6px;
 }
 
-.textMiddleQ{
+.textMiddleQ {
     display: inline;
     vertical-align: -6px;
     margin-left: 20px;
 }
 
-.bluePlus{
+.bluePlus {
     vertical-align: -12px;
     margin-left: 15px;
 }
 
-.addInformation li{
+.addInformation li {
     display: inline-block;
     margin-left: 20px;
     padding: 60px;
-
 }
 
-.options{
+.options {
     margin-top: -45px;
     margin-left: 1310px;
 }
 
-.addButton{
+.addButton {
     font-family: "Fira Code";
     font-weight: bold;
     background-color: #0078d4ff;
@@ -311,10 +300,9 @@ ul{
     font-size: 15px;
     height: 35px;
     width: 100px;
-
 }
 
-.clearButton{
+.clearButton {
     font-family: "Fira Code";
     font-weight: bold;
     background-color: #ffffffff;
@@ -327,13 +315,12 @@ ul{
     width: 80px;
 }
 
-.dropdown{
+.dropdown {
     font-family: "Fira Code";
     display: inline-block;
-
 }
 
-.searchInput{
+.searchInput {
     font-family: "Fira Code";
     margin-left: 350px;
     width: 900px;
@@ -345,9 +332,8 @@ ul{
     margin-top: -40px;
 }
 
-.selectAdminName{
+.selectAdminName {
     display: inline-block;
     margin-top: 15px;
     margin-left: 20px;
-
 }

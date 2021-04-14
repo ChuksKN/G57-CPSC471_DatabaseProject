@@ -1,3 +1,5 @@
+@import url(../fonts/fonts.css);
+
 body {
     background-color: #323a44ff;
     font-family: "Fira Code";
@@ -11,7 +13,7 @@ body {
     overflow: hidden;
 }
 
-.myHomepage{
+.myHomepage {
     color: #ebebe1ff;
     background-color: #323a44ff;
 
@@ -22,23 +24,21 @@ body {
     /*font-size: 20px;*/
     font-weight: bold;
     font-family: "Fira Code Medium";
-
 }
 
-.topLeft{
+.topLeft {
     margin: auto;
     vertical-align: 5px;
     font-size: 20px;
 }
 
-.topImage{
+.topImage {
     vertical-align: middle;
     display: inline-block;
     margin-top: -10px;
-
 }
 
-.myAdmin{
+.myAdmin {
     background-color: #ffffffff;
     color: #323a44ff;
     text-align: left;
@@ -49,19 +49,19 @@ body {
     font-family: "Fira Code";
 }
 
-.separateLine{
+.separateLine {
     background-color: #323a44ff;
     border-left: 0px #323a44ff;
     height: 2px;
 }
 
-.menuHolder{
+.menuHolder {
     background-color: #ecececff;
     border-left: 0px #ecececff;
     height: 500px;
 }
 
-.adminHolder{
+.adminHolder {
     border-radius: 5px;
     display: inline-flex;
     width: 1628px;
@@ -77,14 +77,14 @@ body {
     font-size: 50px;
 }
 
-li{
+li {
     list-style-type: none;
     display: inline-flex;
     margin: 20px;
     align-self: center;
 }
 
-.box{
+.box {
     display: inline-block;
     width: 340px;
     height: 168px;
@@ -92,40 +92,38 @@ li{
     background-color: #ffffffff;
     border-radius: 4px;
     border: 2px solid #323a44ff;
-
 }
 
-.textInBox{
+.textInBox {
     color: #323a44ff;
     text-align: center;
     font-size: 30px;
 }
 
-a{
+a {
     display: inline-flex;
     text-decoration: none;
 }
 
-ul.topRight{
+ul.topRight {
     display: inline;
     vertical-align: -15px;
     margin-left: 65%;
 }
 
-.topRight2{
+.topRight2 {
     display: inline;
 }
 
-.bellIcon{
-    vertical-align: 10px;
-
-}
-
-.helpIcon{
+.bellIcon {
     vertical-align: 10px;
 }
 
-.profileIcon{
+.helpIcon {
+    vertical-align: 10px;
+}
+
+.profileIcon {
     display: inline-block;
     width: 45px;
     height: 45px;
@@ -135,9 +133,8 @@ ul.topRight{
     border: 2px solid #5a5a5aff;
 }
 
-.threeButtons{
+.threeButtons {
     display: inline;
     margin: auto;
     padding-left: 85%;
 }
-
