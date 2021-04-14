@@ -2,8 +2,6 @@ body {
     background-color: #dfdfdfff;
     font-family: "Fira Code";
     text-align: center;
-    /*background-image: url("../../images/PageBackground.png");*/
-    /*background-position: center;*/
     height: 1100px;
     background-position: 25px;
     background-repeat: no-repeat;
@@ -279,6 +277,12 @@ ul{
     vertical-align: -6px;
 }
 
+.textMiddleQ{
+    display: inline;
+    vertical-align: -6px;
+    margin-left: 20px;
+}
+
 .bluePlus{
     vertical-align: -12px;
     margin-left: 15px;
@@ -292,8 +296,8 @@ ul{
 }
 
 .options{
-    margin-top: 120px;
-    margin-left: 30px;
+    margin-top: -45px;
+    margin-left: 1310px;
 }
 
 .addButton{
@@ -304,9 +308,9 @@ ul{
     border-color: #ffffffff;
     border-radius: 5px;
     border-style: solid;
-    font-size: 20px;
-    height: 40px;
-    width: 80px;
+    font-size: 15px;
+    height: 35px;
+    width: 100px;
 
 }
 
@@ -318,8 +322,32 @@ ul{
     border-color: #0078d4ff;
     border-radius: 5px;
     border-style: solid;
-    font-size: 20px;
-    height: 40px;
+    font-size: 15px;
+    height: 35px;
     width: 80px;
+}
+
+.dropdown{
+    font-family: "Fira Code";
+    display: inline-block;
+
+}
+
+.searchInput{
+    font-family: "Fira Code";
+    margin-left: 350px;
+    width: 900px;
+    height: 25px;
+    padding-top: -100px;
+    display: inline-block;
+    float: left;
+
+    margin-top: -40px;
+}
+
+.selectAdminName{
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 20px;
 
 }
