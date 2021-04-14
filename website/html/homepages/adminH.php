@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../css/homepageStyles/adminStyle.css">
     <title>My Admin Homepage &#183; CarBase</title>
 </head>
+
 <body>
 
     <section class="myHomepage">
@@ -48,7 +50,7 @@
 
             <ul class="nav" id="loadCategories">
                 <li href="#">
-                    <a href="../../html/innerPages/admin/createEmployeeAccount.html">
+                    <a href="../../html/innerPages/admin/createEmployeeAccount.php">
                         <div class="box">
                             <p class="textInBox">Create employee account</p>
                             <img src="../../images/lineBox.png" class="lineBox">
@@ -57,16 +59,16 @@
                 </li>
 
                 <li href="#">
-                    <a href="../../html/innerPages/admin/viewAdminAccount.html">
-                    <div class="box">
-                        <p class="textInBox">View admin accounts</p>
-                        <img src="../../images/lineBox.png" class="lineBox">
-                    </div>
+                    <a href="../../html/innerPages/admin/viewAdminAccount.php">
+                        <div class="box">
+                            <p class="textInBox">View admin accounts</p>
+                            <img src="../../images/lineBox.png" class="lineBox">
+                        </div>
                     </a>
                 </li>
 
                 <li href="#">
-                    <a href="../../html/innerPages/admin/viewSalesEmployees.html">
+                    <a href="../../html/innerPages/admin/viewSalesEmployees.php">
                         <div class="box">
                             <p class="textInBox">View sales employee accounts</p>
                             <img src="../../images/lineBox.png" class="lineBox">
@@ -75,7 +77,7 @@
                 </li>
 
                 <li href="#">
-                    <a href="../../html/innerPages/admin/viewTechnicianEmployees.html">
+                    <a href="../../html/innerPages/admin/viewTechnicianEmployees.php">
                         <div class="box">
                             <p class="textInBox">View technician employee accounts</p>
                             <img src="../../images/lineBox.png" class="lineBox">
@@ -89,4 +91,5 @@
     </section>
 
 </body>
+
 </html>
