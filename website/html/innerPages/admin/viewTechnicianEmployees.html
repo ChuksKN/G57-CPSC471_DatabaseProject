@@ -44,27 +44,29 @@
     <div class="leftMenuContainer">
         <ul class="create">
             <li>
-                <div class="selectionBox">
+                <div class="notSelected">
                     <img src="../../../images/plus.png" class="plusImage"> CREATE
                     <ul class="innerObjects"><br>
-                        <li class="pageSelected">
+                        <a href="../../../html/innerPages/admin/createEmployeeAccount.html" class="otherPagesInner">
+                        <li class="pageNotSelected">
                             Employee account
-                            <div class="selector"></div>
                         </li>
+                        </a>
+
                     </ul>
                 </div>
             </li><br>
 
             <li>
-                <div class="notSelected">
+                <div class="selectionBox">
                     <img src="../../../images/eye.png" class="plusImage"> VIEW
 
                     <ul class="innerObjects"><br>
-                        <a href="../../../html/innerPages/admin/viewAdminAccount.html" class="otherPagesInner">
-                            <li class="pageNotSelected">
-                                Admin account
-                            </li>
-                        </a><br>
+                        <li class="pageNotSelected">
+                            <a href="../../../html/innerPages/admin/viewAdminAccount.html" class="otherPagesInner">
+                            Admin account
+                            </a>
+                        </li><br>
 
                         <li class="pageNotSelected">
                             <a href="../../../html/innerPages/admin/viewSalesEmployees.html" class="otherPagesInner">
@@ -72,10 +74,9 @@
                             </a>
                         </li><br>
 
-                        <li class="pageNotSelected">
-                            <a href="../../../html/innerPages/admin/viewTechnicianEmployees.html" class="otherPagesInner">
+                        <li class="pageSelected">
                             Technician employees
-                            </a>
+                            <div class="selector"></div>
                         </li>
                     </ul>
                 </div>
@@ -89,6 +90,7 @@
             <div class="backButton">back</div>
         </a>
 
+        <!--        <button class="backButton">back</button>-->
     </div>
 
 </section>
@@ -97,68 +99,36 @@
 
 <section>
     <div class="rightMenuContainer">
-        <p class="bolderEmployee">Employee Account</p>
-        <p class="description">Create a new account</p>
+        <p class="bolderEmployee">Technician employees</p>
+        <p class="description">View technician employees</p>
         <div class="underLine"></div>
 
         <div class="query">
-            <img src="../../../images/plusBlue.png" class="bluePlus">
-            <div class="textMiddle">Add information</div>
+            <div class="textMiddleQ">Query</div>
         </div>
+
 
         <div class="accountCreatorBox">
 
             <form name="addInformation">
 
-                <ul class="addInformation">
-                    <li>
-                        <label>Employee ID</label><br>
-                        <input type="number" name="EmployeeID"><br><br>
-                    </li>
+                <div>
+                    <label>
+                        <p class="selectAdminName">Select technician</p>
+                        <select name="adminAccount" id="adminAccount" class="dropdown">
+                            <optgroup label="technician">
+                                <option value="pablo">1433241234</option>
+                                <option value="peanut">325324534</option>
+                            </optgroup>
+                        </select>
 
-                    <li>
-                        <label>First Name</label><br>
-                        <input type="text" name="Fname"><br><br>
-                    </li>
+                    </label>
+                </div>
 
-                    <li>
-                        <label>Last Name</label><br>
-                        <input type="text" name="Lname"><br><br>
-                    </li>
-
-                    <li>
-                        <label>Date of Birth</label><br>
-                        <input type="date" name="DOB"><br><br>
-                    </li>
-
-                    <li>
-                        <label>Email</label><br>
-                        <input type="email" name="Email"><br><br>
-                    </li>
-
-                    <li>
-                        <label>Address</label><br>
-                        <input type="text" name="Address"><br><br>
-                    </li>
-
-                    <li>
-                        <label>Phone Number</label><br>
-                        <input type="number" name="PhoneNumber"><br><br>
-                    </li>
-
-                    <li>
-                        <label>Salary</label><br>
-                        <input type="number" name="Salary"><br><br>
-                    </li>
-
-                    <li>
-                        <label>Supervisor's Employee ID</label><br>
-                        <input type="number" name="Super_EID"><br><br>
-                    </li>
-                </ul>
+                <input type="text" placeholder="Search technicians" class="searchInput">
 
                 <div class="options">
-                    <button class="addButton" type="submit">Add</button>
+                    <button class="addButton" type="submit">Search</button>
                     <button class="clearButton" type="submit">Clear</button>
                 </div>
 
