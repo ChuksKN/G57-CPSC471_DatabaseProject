@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    </body>
+</html>
+<script>
+    $.ajax({
+        url: 'http://localhost/project/api/technician/deleteMaintenanceRequest.php',
+        method: 'DELETE',
+        dataType: 'json',
+        data: JSON.stringify({ EmployeeID : "19",
+                               WorkOrderID : "108" }),
+        contentType: "application/json",
+        success: function(data){
+            alert(data.message);
+        }
+    });
+</script>
