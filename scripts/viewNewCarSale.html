@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <table class="table table-bordered table-striped" id="new_car_sale_table">
+            <tr>
+                <th>EmployeeID</th>
+                <th>CustomerID</th>
+                <th>VIN</th>
+                <th>SaleID</th>
+                <th>Sale Date</th>
+                <th>License Plate Number</th>
+                <th>Registration Details</th>
+                <th>Method of Payment</th>
+                
+            </tr>
+
+            <tbody id="newCarSaleBody">
+                
+            </tbody>
+        </table>
+    </body>
+</html>
+
+<script>
+	$.getJSON('http://localhost/api_files/api/salesperson/viewNewCarSaleEntries.php', function(data){
+    $(data).each(function(i, newcar){
+        if(newcar.hasOwnProperty('message')){
+                alert(newcar.message);
+        } else{
+            $('#newCarSaleBody').append($("<tr>")
+                //.append($("<td>").append(newcar.message))
+                .append($("<td>").append(newcar.EmployeeID))
+                .append($("<td>").append(newcar.CustomerID))
+                .append($("<td>").append(newcar.VIN))
+                .append($("<td>").append(newcar.SaleID))
+                .append($("<td>").append(newcar.SaleDate))
+                .append($("<td>").append(newcar.LPlateNo))
+                .append($("<td>").append(newcar.RegistrationDetails))    
+                .append($("<td>").append(newcar.Method_of_Payment)));
+
+        }
+            
+    });
+    })
+	.done(function(){
+		alert("Completed");
+	})
+	.fail(function(e){
+		alert("error: "+e);
+	})
+</script>
