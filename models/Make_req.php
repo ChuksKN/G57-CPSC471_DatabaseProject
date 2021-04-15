@@ -118,7 +118,12 @@ class Make_req
 
             // Execute query
             if ($stmt->execute()) {
-            return true;
+                if($stmt->rowCount() == 0)
+                {
+                    $this->errormsg = 'No row was effected. Entry may be invalid.';
+                    return false;
+                }
+                return true;
             }
 
             // Print error if something goes wrong
@@ -153,6 +158,11 @@ class Make_req
 
             // Execute query
             if ($stmt->execute()) {
+                if($stmt->rowCount() == 0)
+                {
+                    $this->errormsg = 'No row was effected. Entry may be invalid.';
+                    return false;
+                }
                 return true;
             }
 
