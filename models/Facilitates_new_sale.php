@@ -153,10 +153,14 @@ class Facilitates_new_sale
         $stmt->bindParam(':RegistrationDetails', $this->RegistrationDetails);
         $stmt->bindParam(':Method_of_Payment', $this->Method_of_Payment);
 
-        // Execute query
         if ($stmt->execute()) {
-          return true;
-        }
+                if($stmt->rowCount() == 0)
+                {
+                    $this->errormsg = 'No row was effected. Entry may be invalid.';
+                    return false;
+                }
+                return true;
+            }
 
         // Print error if something goes wrong
         printf("Error: %s.\n", $stmt->error);
@@ -188,8 +192,13 @@ class Facilitates_new_sale
 
     // Execute query
     if ($stmt->execute()) {
-      return true;
-    }
+                if($stmt->rowCount() == 0)
+                {
+                    $this->errormsg = 'No row was effected. Entry may be invalid.';
+                    return false;
+                }
+                return true;
+            }
 
     // Print error if something goes wrong
     printf("Error: %s.\n", $stmt->error);
