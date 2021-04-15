@@ -30,13 +30,19 @@ $newSale->RegistrationDetails = $data->RegistrationDetails;
 $newSale->Method_of_Payment = $data->Method_of_Payment;
 
 
-// Update newSale
+// Update post
 if ($newSale->update()) {
-    echo json_encode(
-        array('Success!' => 'New Car Sale Entry Updated')
-    );
+  echo json_encode(
+    array('message' => 'New Car Sale Entry Updated')
+  );
 } else {
+  if (is_null($newSale->errormsg)) {
     echo json_encode(
-        array('Failed!' => 'New Car Sale Not Updated')
+      array('message' => 'Entry information did not update.')
     );
+  } else {
+    echo json_encode(
+      array('message' => 'Entry information did not update. ' . $newSale->errormsg)
+    );
+  }
 }

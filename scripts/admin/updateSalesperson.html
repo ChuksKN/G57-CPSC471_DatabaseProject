@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    </body>
+</html>
+<script>
+    $.ajax({
+        url: 'http://localhost/G57-CPSC471_DatabaseProject/api/admin/updateSalesperson.php',
+        method: 'POST',
+        dataType: 'json',
+        data: JSON.stringify({ Super_EID : 3,
+                               EmployeeID : 1,
+                               Fname : "Changed", 
+                               Lname : "Changed",
+                               DOB : "1987-06-30",
+                               Email : "changed@test.com",
+                               Address : "tester",
+                               PhoneNumber : 501634797,
+                               Salary : 35000,
+                               Super_EIDUpdate : 1 }),
+        contentType: "application/json",
+        success: function(data){
+            alert(data.message);
+        }
+    });
+</script>

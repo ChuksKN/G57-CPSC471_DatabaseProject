@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <table class="table table-bordered table-striped" id="request_table">
+            <tr>
+                <th>Employee ID</th>
+                <th>Work Order ID</th>
+                <th>Cost</th>
+                <th>Date of Request</th>
+            </tr>
+
+            <tbody id="requestBody">
+                
+            </tbody>
+        </table>
+    </body>
+</html>
+
+<script>
+	$.getJSON('http://localhost/project/api/technician/viewMaintenanceRequestUnder.php?EmployeeID=4143', function(data){
+    $(data).each(function(i, request){
+        if(request.hasOwnProperty('message')){
+                alert(request.message);
+        }
+        else{
+            $('#requestBody').append($("<tr>")
+                .append($("<td>").append(request.EmployeeID))
+                .append($("<td>").append(request.WorkOrderID))
+                .append($("<td>").append(request.WorkCost))    
+                .append($("<td>").append(request.Request_Date)));
+        }
+    });
+    })
+</script>

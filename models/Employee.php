@@ -76,13 +76,13 @@ class Employee
     // Create query
     $query = 'SELECT *
                           FROM ' . $this->table . '
-                          WHERE VIN = ?';
+                          WHERE EmployeeID = ?';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
 
     // Bind ID
-    $stmt->bindParam(1, $this->VIN);
+    $stmt->bindParam(1, $this->EmployeeID);
 
     // Execute query
     $stmt->execute();
@@ -112,7 +112,7 @@ class Employee
       $this->Super_EID = htmlspecialchars(strip_tags($this->Super_EID));
 
       // Bind data
-      $stmt->bindParam(':Fname', $this->EmployeeID);
+      $stmt->bindParam(':EmployeeID', $this->EmployeeID);
       $stmt->bindParam(':Fname', $this->Fname);
       $stmt->bindParam(':Lname', $this->Lname);
       $stmt->bindParam(':DOB', $this->DOB);

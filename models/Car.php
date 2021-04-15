@@ -83,7 +83,7 @@ class Car
     // Create Post
     public function create()
     {
-        try{
+        try {
             // Create query
             $query = 'INSERT INTO ' .
                 $this->table . ' SET VIN = :VIN, Manufacturer = :Manufacturer, Make = :Make, Year = :Year, Engine = :Engine, Output = :Output, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, 
@@ -132,21 +132,19 @@ class Car
             // Print error if something goes wrong
             printf("Error: %s.\n", $stmt->error);
             return false;
-        }
-        catch(Exception $e){
+        } catch (Exception $e) {
             $this->errormsg = $e->getMessage();
             return false;
         }
-
     }
 
     // Update Post
     public function update()
     {
-        try{
+        try {
             // Create query
             $query = 'UPDATE ' . $this->table . '
-                        SET Manufacturer = :Manufacturer, Make = :Make, `Year` = :`Year`, Engine = :Engine, `Output` = :`Output`, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, 
+                        SET Manufacturer = :Manufacturer, Make = :Make, Year = :Year, Engine = :Engine, Output = :Output, No_of_doors = :No_of_doors, Fuel_tank_cap = :Fuel_tank_cap, Transmission = :Transmission, Terrain = :Terrain, 
                         Seating_capacity = :Seating_capacity, Torque = :Torque, Region = :Region, DRL = :DRL
                         WHERE VIN = :VIN';
 
@@ -193,8 +191,7 @@ class Car
             printf("Error: %s.\n", $stmt->error);
 
             return false;
-        }
-        catch(Exception $e){
+        } catch (Exception $e) {
             $this->errormsg = $e->getMessage();
             return false;
         }
@@ -203,7 +200,7 @@ class Car
     // Delete Post
     public function delete()
     {
-        try{
+        try {
             // Create query
             $query = 'DELETE FROM ' . $this->table . ' WHERE VIN = :VIN';
 
@@ -225,8 +222,7 @@ class Car
             printf("Error: %s.\n", $stmt->error);
 
             return false;
-        }
-        catch(Exception $e){
+        } catch (Exception $e) {
             $this->errormsg = $e->getMessage();
             return false;
         }

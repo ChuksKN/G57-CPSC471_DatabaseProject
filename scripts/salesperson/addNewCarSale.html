@@ -12,20 +12,18 @@
 </html>
 <script>
     $.ajax({
-        url: 'http://localhost/project/api/admin/updateTechnician.php',
+        url: 'http://localhost/api_files/api/salesperson/addNewCarSale.php',
         method: 'POST',
         dataType: 'json',
-        data: JSON.stringify({ Super_EID : "513",
-                               EmployeeID : "4143",
-                               Fname : "John", 
-                               Lname : "Doe",
-                               DOB : "1981-04-06",
-                               Email : "jdoe@test.com",
-                               Address : "Mt. Fuji",
-                               PhoneNumber : "971523492",
-                               Salary : "15000",
-                               Super_EIDUpdate : "513",
-                               T_grade : "100" }),
+        data: JSON.stringify({ EmployeeID : 34362, 
+                               CustomerID : 56584,
+                               VIN : "kaboom",
+                               SaleID : 20734638400,
+                               SaleDate : "2019-12-12",
+                               LPlateNo : "test123",
+                               RegistrationDetails : "test",
+                               Method_of_Payment : "debit"
+                                }),
         contentType: "application/json",
         success: function(data){
             alert(data.message);

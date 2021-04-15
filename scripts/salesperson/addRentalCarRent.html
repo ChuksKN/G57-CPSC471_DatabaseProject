@@ -12,19 +12,20 @@
 </html>
 <script>
     $.ajax({
-        url: 'http://localhost/project/api/admin/updateSalesperson.php',
+        url: 'http://localhost/api_files/api/salesperson/addRentalCarRent.php',
         method: 'POST',
         dataType: 'json',
-        data: JSON.stringify({ Super_EID : 1,
-                               EmployeeID : 513,
-                               Fname : "Changed", 
-                               Lname : "Changed",
-                               DOB : "1987-06-30",
-                               Email : "changed@test.com",
-                               Address : "tester",
-                               PhoneNumber : 501634797,
-                               Salary : 35000,
-                               Super_EIDUpdate : 1 }),
+        data: JSON.stringify({ EmployeeID : 34362, 
+                               CustomerID : 56584,
+                               VIN : "oho",
+                               RentalID : 20734638400,
+                               LPlateNo : "test123",
+                               RentalDetails : "test",
+                               PaymentMethod : "debit",
+                               StartDate : "2020-12-21",
+                               ReturnDate: "2021-12-28"
+
+                                }),
         contentType: "application/json",
         success: function(data){
             alert(data.message);

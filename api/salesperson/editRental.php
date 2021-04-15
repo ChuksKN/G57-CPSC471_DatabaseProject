@@ -24,6 +24,7 @@ $rental->RentalID = $data->RentalID;
 $rental->EmployeeID = $data->EmployeeID;
 $rental->CustomerID = $data->CustomerID;
 $rental->VIN = $data->VIN;
+
 $rental->RentalDetails = $data->RentalDetails;
 $rental->LPlateNo = $data->LPlateNo;
 $rental->PaymentMethod = $data->PaymentMethod;
@@ -36,7 +37,13 @@ if ($rental->update()) {
     array('Success!' => 'Car Rental Updated')
   );
 } else {
-  echo json_encode(
-    array('Failed!' => 'Car Rental Not Updated')
-  );
+  if (is_null($rental->errormsg)) {
+    echo json_encode(
+      array('message' => 'Failed to update rental')
+    );
+  } else {
+    echo json_encode(
+      array('message' => 'Failed to update rental. Error' . $rental->errormsg)
+    );
+  }
 }

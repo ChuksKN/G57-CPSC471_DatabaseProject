@@ -32,10 +32,16 @@ $usedSale->PaymentMethod = $data->PaymentMethod;
 // Update usedSale
 if ($usedSale->update()) {
   echo json_encode(
-    array('Success!' => 'Used Car Sale Entry Updated')
+    array('message' => 'Used Car Sale Entry Updated')
   );
 } else {
-  echo json_encode(
-    array('Failed!' => 'Used Car Sale Entry Not Updated')
-  );
+  if (is_null($usedSale->errormsg)) {
+    echo json_encode(
+      array('message' => 'Entry information did not update.')
+    );
+  } else {
+    echo json_encode(
+      array('message' => 'Entry information did not update. ' . $usedSale->errormsg)
+    );
+  }
 }

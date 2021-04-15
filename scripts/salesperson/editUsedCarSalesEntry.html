@@ -12,11 +12,18 @@
 </html>
 <script>
     $.ajax({
-        url: 'http://localhost/project/api/admin/deleteTechnician.php',
-        method: 'DELETE',
+        url: 'http://localhost/api_files/api/salesperson/editUsedCarSalesEntry.php',
+        method: 'PUT',
         dataType: 'json',
-        data: JSON.stringify({ Super_EID : "513",
-                               EmployeeID : "4143" }),
+        data: JSON.stringify({ EmployeeID : 34362,
+                               CustomerID : 56584,
+                               VIN : "ssh", 
+                               USaleID : 1234,
+                               USaleDate : "2021-04-12",
+                               LPlateNo : "gang",
+                               PaymentMethod : "etransfer",
+                               
+                            }),
         contentType: "application/json",
         success: function(data){
             alert(data.message);
