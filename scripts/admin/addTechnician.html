@@ -12,19 +12,20 @@
 </html>
 <script>
     $.ajax({
-        url: 'http://localhost/G57-CPSC471_DatabaseProject/api/admin/addTechnician.php',
+        url: 'http://localhost/api_files/api/admin/addSalesperson.php',
         method: 'POST',
         dataType: 'json',
-        data: JSON.stringify({ EmployeeID : "746",
-                               Fname : "test", 
-                               Lname : "tester", 
-                               DOB : "",
-                               Email : "",
-                               Address : "",
-                               PhoneNumber : "",
-                               Salary : "",
-                               Super_EID : "",
-                               T_grade : "5" }),
+        data: JSON.stringify({ EmployeeID : "1321237", 
+                               Fname : "Jane",
+                               Lname : "Doe",
+                               DOB : "0000-00-00",
+                               Email : "janedoe@doe.com",
+                               Address : "Nowhere",
+                               PhoneNumber : 0000,
+                               Salary : 2000,
+                               Super_EID : 34362,
+                               T_grade : "55"
+                            }),
         contentType: "application/json",
         success: function(data){
             alert(data.message);
