@@ -35,10 +35,19 @@
   // Create Salesperson
   if($emp->create() && $sales->create()) {
     echo json_encode(
-      array('message' => 'Salesperson successfully added.')
+      array('message' => 'Successfully added Sales Person:'.$emp->EmployeeID)
     );
   } else {
-    echo json_encode(
-      array('message' => 'Failed to add Salesperson.')
-    );
+    if(is_null($emp->errormsg && $sales->errormsg))
+    {
+        echo json_encode(
+          array('message' => 'Unsuccessful.')
+        );
+    }
+    else
+    {
+      echo json_encode(
+        array('message' => 'Unsuccessful. '.$emp->errormsg)
+      );
+    }
   }
