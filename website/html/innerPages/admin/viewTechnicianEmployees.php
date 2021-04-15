@@ -25,7 +25,9 @@
             </li>
 
             <li class="topRight2">
+                <a href="../../html/login.php">
                 <div class="profileIcon"></div>
+                </a>
             </li>
 
         </ul>

@@ -3,9 +3,9 @@ class Database
 {
   // DB Params
   private $host = 'localhost';
-  private $db_name = '';
+  private $db_name = 'dealership_db';
   private $username = 'root';
-  private $password = '';
+  private $password = 'potman16';
   private $conn;
 
   // DB Connect
