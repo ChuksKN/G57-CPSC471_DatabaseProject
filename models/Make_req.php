@@ -8,6 +8,7 @@ class Make_req
     // Part Properties
     public $CustomerID;
     public $WorkOrderID;
+    public $errormsg = null;
 
     // Constructor with DB
     public function __construct($db)
@@ -58,87 +59,112 @@ class Make_req
 
     // Create Post
     public function create()
-    {
-        // Create query
-        $query = 'INSERT INTO ' . $this->table . ' ';
+    { 
+        try{
+                // Create query
+            $query = 'INSERT INTO ' . $this->table . ' ';
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
 
-        // Clean data
-        $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
-        $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
+            // Clean data
+            $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
+            $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
 
-        // Bind data
-        $stmt->bindParam(':CustomerID', $this->CustomerID);
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
+            // Bind data
+            $stmt->bindParam(':CustomerID', $this->CustomerID);
+            $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
 
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
-        }
+            // Execute query
+            if ($stmt->execute()) {
+                if($stmt->rowCount()==0){
+                  $this->errormsg = 'No row was effected. Invalid entry.';
+                  return false;
+                }
+              return true;
+              }
 
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
 
-        return false;
+            return false;
+
+            }catch(Exception $e){
+                $this->errormsg = $e->getMessage();
+                return false;
+            }
+        
     }
 
     // Update Post
     public function update()
     {
-        // Create query
-        $query = 'UPDATE ' . $this->table . '
-                    SET 
-                    WHERE ';
+        try{
+                // Create query
+            $query = 'UPDATE ' . $this->table . '
+            SET 
+            WHERE ';
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
 
-        // Clean data
-        $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
-        $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
+            // Clean data
+            $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
+            $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
 
-        // Bind data
-        $stmt->bindParam(':CustomerID', $this->CustomerID);
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
+            // Bind data
+            $stmt->bindParam(':CustomerID', $this->CustomerID);
+            $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
 
-        // Execute query
-        if ($stmt->execute()) {
+            // Execute query
+            if ($stmt->execute()) {
             return true;
+            }
+
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+
+            return false;
+
+        }catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
         }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+                    
     }
 
     // Delete Post
     public function delete()
     {
-        // Create query
-        $query = 'DELETE FROM ' . $this->table . ' WHERE CustomerID = :CustomerID, WorkOrderID = :WorkOrderID';
+        try{
+                // Create query
+            $query = 'DELETE FROM ' . $this->table . ' WHERE CustomerID = :CustomerID, WorkOrderID = :WorkOrderID';
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
 
-        // Clean data
-        $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
-        $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
+            // Clean data
+            $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
+            $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
 
-        // Bind data
-        $stmt->bindParam(':CustomerID', $this->CustomerID);
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
+            // Bind data
+            $stmt->bindParam(':CustomerID', $this->CustomerID);
+            $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
 
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+
+            return false;
+        }catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
         }
 
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
-    }
+        }
+        
 }
