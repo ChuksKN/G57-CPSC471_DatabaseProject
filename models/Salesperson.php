@@ -121,7 +121,7 @@ class Salesperson
       $stmt = $this->conn->prepare($query);
 
       // Clean data
-      $this->employee_eid = htmlspecialchars(strip_tags($this->EmployeeID));
+      $this->EmployeeID = htmlspecialchars(strip_tags($this->EmployeeID));
 
       // Bind data
       $stmt->bindParam(':EmployeeID', $this->EmployeeID);

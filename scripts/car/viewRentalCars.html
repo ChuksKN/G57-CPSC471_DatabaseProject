@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <table class="table table-bordered table-striped" id="rentalcar_table">
+            <tr>
+                <th>VIN</th>
+                <th>Manufacturer</th>
+                <th>Make</th>
+                <th>Year</th>
+                <th>Engine</th>
+                <th>Output</th>
+                <th>No_of_doors</th>
+                <th>Fuel_tank_cap</th>
+                <th>Transmission</th>
+                <th>Terrain</th>
+                <th>Seating_capacity</th>
+                <th>Torque</th>
+                <th>Region</th>
+                <th>LPlateNo</th>
+                <th>DRL</th>
+            </tr>
+
+            <tbody id="rentalcarBody">
+                
+            </tbody>
+        </table>
+    </body>
+</html>
+
+<script>
+	$.getJSON('http://localhost/G57-CPSC471_DatabaseProject/api/car/viewRentalCars.php', function(data){
+    $(data).each(function(i, rentalcar){
+        if(rentalcar.hasOwnProperty('message')){
+                alert(rentalcar.message);
+        }
+        else{
+            $('#rentalcarBody').append($("<tr>")
+                .append($("<td>").append(rentalcar.VIN))
+                .append($("<td>").append(rentalcar.Manufacturer))
+                .append($("<td>").append(rentalcar.Make))
+                .append($("<td>").append(rentalcar.Year))
+                .append($("<td>").append(rentalcar.Engine))
+                .append($("<td>").append(rentalcar.Output))
+                .append($("<td>").append(rentalcar.No_of_doors))
+                .append($("<td>").append(rentalcar.Fuel_tank_cap))   
+                .append($("<td>").append(rentalcar.Transmission))
+                .append($("<td>").append(rentalcar.Terrain))
+                .append($("<td>").append(rentalcar.Seating_capacity))
+                .append($("<td>").append(rentalcar.Torque))
+                .append($("<td>").append(rentalcar.Region))
+                .append($("<td>").append(rentalcar.LPlateNo))
+                .append($("<td>").append(rentalcar.DRL)));
+        }
+    });
+    })
+</script>

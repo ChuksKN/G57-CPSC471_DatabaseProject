@@ -33,13 +33,19 @@
   $tech->T_grade = $data->T_grade;
 
 
-  // Create Salesperson
-  if($emp->create() && $tech->create()) {
+  // Create Technician
+  if ($emp->create() && $tech->create()) {
     echo json_encode(
       array('message' => 'Technician successfully added.')
     );
   } else {
-    echo json_encode(
-      array('message' => 'Failed to add Technician.')
-    );
+    if (is_null($tech->errormsg)) {
+      echo json_encode(
+        array('message' => 'Unsuccessful.')
+      );
+    } else {
+      echo json_encode(
+        array('message' => 'Unsuccessful. ' . $tech->errormsg)
+      );
+    }
   }
