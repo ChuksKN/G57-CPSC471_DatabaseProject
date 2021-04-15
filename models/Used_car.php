@@ -21,6 +21,7 @@ class Used_car
     public $Region;
     public $DRL;
     public $DistanceTravelled;
+    public $errormsg = null;
 
     // Constructor with DB
     public function __construct($db)
@@ -83,8 +84,8 @@ class Used_car
 
     // Get VIN from Post
     public function check_vin()
-    {
-        // Create query
+    { 
+        try{// Create query
         $query = 'SELECT *
                           FROM car NATURAL JOIN ' . $this->table . '
                           WHERE VIN = ?';
@@ -99,87 +100,115 @@ class Used_car
         $stmt->execute();
 
         return $stmt;
+
+    }catch(Exception $e){
+        $this->errormsg = $e->getMessage();
+        return false;
+    }
+        
     }
 
     // Create Post
     public function create()
     {
-        // Create query
-        $query = 'INSERT INTO ' . $this->table . ' SET VIN = :VIN';
+        try{// Create query
+            $query = 'INSERT INTO ' . $this->table . ' SET VIN = :VIN';
+    
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
+    
+            // Clean data
+            $this->VIN = htmlspecialchars(strip_tags($this->VIN));
+    
+            // Bind data
+            $stmt->bindParam(':VIN', $this->VIN);
+    
+            // Execute query
+            if ($stmt->execute()) {
+                if($stmt->rowCount()==0){
+                  $this->errormsg = 'No row was effected. Invalid entry.';
+                  return false;
+                }
+              return true;
+              }
+    
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+    
+            return false;
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
-
-        // Clean data
-        $this->VIN = htmlspecialchars(strip_tags($this->VIN));
-
-        // Bind data
-        $stmt->bindParam(':VIN', $this->VIN);
-
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+        }catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
         }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+        
     }
 
     // Update Post
     public function update()
     {
-        // Create query
-        $query = 'UPDATE ' . $this->table . '
-                    SET DistanceTravelled = :DistanceTravelled
-                    WHERE VIN = :VIN';
+        try{// Create query
+            $query = 'UPDATE ' . $this->table . '
+                        SET DistanceTravelled = :DistanceTravelled
+                        WHERE VIN = :VIN';
+    
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
+    
+            // Clean data
+            $this->VIN = htmlspecialchars(strip_tags($this->VIN));
+            $this->DistanceTravelled = htmlspecialchars(strip_tags($this->DistanceTravelled));
+    
+            // Bind data
+            $stmt->bindParam(':VIN', $this->VIN);
+            $stmt->bindParam(':DistanceTravelled', $this->DistanceTravelled);
+    
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+    
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+    
+            return false;
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
-
-        // Clean data
-        $this->VIN = htmlspecialchars(strip_tags($this->VIN));
-        $this->DistanceTravelled = htmlspecialchars(strip_tags($this->DistanceTravelled));
-
-        // Bind data
-        $stmt->bindParam(':VIN', $this->VIN);
-        $stmt->bindParam(':DistanceTravelled', $this->DistanceTravelled);
-
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+        }catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
         }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+        
     }
 
     // Delete Post
     public function delete()
     {
-        // Create query
-        $query = 'DELETE FROM ' . $this->table . ' WHERE VIN = :VIN';
-
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
-
-        // Clean data
-        $this->VIN = htmlspecialchars(strip_tags($this->VIN));
-
-        // Bind data
-        $stmt->bindParam(':VIN', $this->VIN);
-
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+        try{// Create query
+            $query = 'DELETE FROM ' . $this->table . ' WHERE VIN = :VIN';
+    
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
+    
+            // Clean data
+            $this->VIN = htmlspecialchars(strip_tags($this->VIN));
+    
+            // Bind data
+            $stmt->bindParam(':VIN', $this->VIN);
+    
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+    
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+    
+            return false;
+        }catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
         }
 
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
-    }
+        }
+        
 }
