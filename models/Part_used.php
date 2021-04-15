@@ -56,7 +56,7 @@ class Part_used
         $this->WorkOrderID = $row['WorkOrderID'];
     }
 
-    // Create Post
+    // Create Post - Added Error Handling
     public function create()
     {
         try{// Create query
