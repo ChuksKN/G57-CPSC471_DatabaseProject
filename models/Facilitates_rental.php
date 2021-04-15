@@ -104,7 +104,11 @@ class Facilitates_rental
 
           // Execute query
           if ($stmt->execute()) {
-            return true;
+            if($stmt->rowCount()==0){
+              $this->errormsg = 'No row was effected. Invalid entry.';
+              return false;
+            }
+          return true;
           }
 
           // Print error if something goes wrong
