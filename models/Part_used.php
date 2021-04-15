@@ -8,6 +8,7 @@ class Part_used
     // Part Properties
     public $PartID;
     public $WorkOrderID;
+    public $errormsg = null;
 
     // Constructor with DB
     public function __construct($db)
@@ -58,84 +59,106 @@ class Part_used
     // Create Post
     public function create()
     {
-        // Create query
-        $query = 'INSERT INTO ' . $this->table . ' SET PartID = :PartID, WorkOrderID = :WorkOrderID';
+        try{// Create query
+            $query = 'INSERT INTO ' . $this->table . ' SET PartID = :PartID, WorkOrderID = :WorkOrderID';
+    
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
+    
+            // Clean data
+            $this->PartID = htmlspecialchars(strip_tags($this->PartID));
+            $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
+    
+            // Bind data
+            $stmt->bindParam(':PartID', $this->PartID);
+            $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
+    
+            // Execute query
+            if ($stmt->execute()) {
+                if($stmt->rowCount()==0){
+                  $this->errormsg = 'No row was effected. Invalid entry.';
+                  return false;
+                }
+              return true;
+              }
+    
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+    
+            return false;
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
-
-        // Clean data
-        $this->PartID = htmlspecialchars(strip_tags($this->PartID));
-        $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
-
-        // Bind data
-        $stmt->bindParam(':PartID', $this->PartID);
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
-
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+        }catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
         }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+        
     }
 
     // Update Post
     public function update()
     {
-        // Create query
-        $query = 'UPDATE ' . $this->table . '
-                    SET WorkOrderID = :WorkOrderID
-                    WHERE PartID = :PartID';
+        try{// Create query
+            $query = 'UPDATE ' . $this->table . '
+                        SET WorkOrderID = :WorkOrderID
+                        WHERE PartID = :PartID';
+    
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
+    
+            // Clean data
+            $this->PartID = htmlspecialchars(strip_tags($this->PartID));
+            $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
+    
+            // Bind data
+            $stmt->bindParam(':PartID', $this->PartID);
+            $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
+    
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+    
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+    
+            return false;
 
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
-
-        // Clean data
-        $this->PartID = htmlspecialchars(strip_tags($this->PartID));
-        $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
-
-        // Bind data
-        $stmt->bindParam(':PartID', $this->PartID);
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
-
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+        }catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
         }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
+        
     }
 
     // Delete Post
     public function delete()
     {
-        // Create query
-        $query = 'DELETE FROM ' . $this->table . ' WHERE PartID = :PartID';
-
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
-
-        // Clean data
-        $this->PartID = htmlspecialchars(strip_tags($this->PartID));
-
-        // Bind data
-        $stmt->bindParam(':PartID', $this->PartID);
-
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
+        try{ // Create query
+            $query = 'DELETE FROM ' . $this->table . ' WHERE PartID = :PartID';
+    
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
+    
+            // Clean data
+            $this->PartID = htmlspecialchars(strip_tags($this->PartID));
+    
+            // Bind data
+            $stmt->bindParam(':PartID', $this->PartID);
+    
+            // Execute query
+            if ($stmt->execute()) {
+                return true;
+            }
+    
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $stmt->error);
+    
+            return false;
+        }catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
         }
 
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
-    }
+        }
+       
 }
