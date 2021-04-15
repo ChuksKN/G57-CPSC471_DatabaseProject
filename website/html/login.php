@@ -4,19 +4,12 @@ session_start();
 
 // Include relevant database models
 include_once '../../config/Database.php';
-include_once '../../models/Admin.php';
-include_once '../../models/Salesperson.php';
-include_once '../../models/Technician.php';
+
+$errmsg = "";
 
 // Instantiate DB & connect
 $database = new Database();
 $db = $database->connect();
-
-$sales = new Admin($db);
-$sales = new Salesperson($db);
-$sales = new Technician($db);
-
-$errmsg = "";
 
 //If the form is submitted or not.
 //If the form is submitted
@@ -27,18 +20,53 @@ if (isset($_POST["login"])) {
         //Checking the values are existing in the database or not
         $query = "SELECT * FROM login WHERE UserID = :employeeid and Passwrd =:password";
 
-        $result = $db->prepare($query);
-        $result->execute(
+        $admin_check = "SELECT * FROM admin WHERE EmployeeID = :employeeid";
+        $sales_check = "SELECT * FROM salesperson WHERE EmployeeID = :employeeid";
+        $tech_check = "SELECT * FROM technician WHERE EmployeeID = :employeeid";
+
+        $result1 = $db->prepare($query);
+        $result1->execute(
             array(
                 'employeeid' => $_POST["employeeid"],
                 'password' => $_POST["password"]
             )
         );
-        $count = $result->rowCount();
+
+        $result2 = $db->prepare($admin_check);
+        $result2->execute(
+            array(
+                'employeeid' => $_POST["employeeid"]
+            )
+        );
+
+        $result3 = $db->prepare($sales_check);
+        $result3->execute(
+            array(
+                'employeeid' => $_POST["employeeid"]
+            )
+        );
+
+        $result4 = $db->prepare($tech_check);
+        $result4->execute(
+            array(
+                'employeeid' => $_POST["employeeid"]
+            )
+        );
+
+        $count1 = $result1->rowCount();
+        $count2 = $result2->rowCount();
+        $count3 = $result3->rowCount();
+        $count4 = $result4->rowCount();
         //If the posted values exist, then session will be created for the user.
-        if ($count > 0) {
+        if ($count1 > 0 && $count2 > 0) {
             $_SESSION['employeeid'] = $_POST["employeeid"];
             header("location:homepages/adminH.php");
+        } elseif ($count1 > 0 && $count3 > 0) {
+            $_SESSION['employeeid'] = $_POST["employeeid"];
+            header("location:homepages/salesH.php");
+        } elseif ($count1 > 0 && $count4 > 0) {
+            $_SESSION['employeeid'] = $_POST["employeeid"];
+            header("location:homepages/technicianH.php");
         } else {
             //If the login credentials doesn't match, he will be shown with an error message.
             $errmsg = "Invalid Login Credentials.";
