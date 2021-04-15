@@ -2,12 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bd4d2bc-cf0a-4a7b-b9a9-8a4dc8c5ef71" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/website/css/homepageStyles/carStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/css/homepageStyles/customerStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/css/homepageStyles/salesStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/css/homepageStyles/technicianStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/css/innerPagesStyles/carInnerStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/css/innerPagesStyles/customerInnerStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/css/innerPagesStyles/salesInnerStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/css/innerPagesStyles/technicianInnerStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/car/carRentals.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/car/carSales.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/customer/viewMaintenanceRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/customer/viewOwnedCarDetails.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/customer/viewRentalCarDetails.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/sales/accessCarRentals.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/sales/accessCarSales.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/sales/viewCarRentals.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/sales/viewCarSales.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/technician/deleteMaintenanceRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/technician/handleMaintenanceRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/technician/viewMaintenanceRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/html/innerPages/technician/viewPartInventory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website/images/key.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/homepages/adminH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/homepages/adminH.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/innerPages/admin/createEmployeeAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/innerPages/admin/createEmployeeAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/innerPages/admin/viewAdminAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/innerPages/admin/viewAdminAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/innerPages/admin/viewSalesEmployees.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/innerPages/admin/viewSalesEmployees.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/innerPages/admin/viewTechnicianEmployees.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/innerPages/admin/viewTechnicianEmployees.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/html/homepages/carH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/homepages/carH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/html/homepages/customerH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/homepages/customerH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/html/homepages/salesH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/homepages/salesH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/html/homepages/technicianH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/homepages/technicianH.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +39,13 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -24,11 +53,33 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/website/html/innerPages/customer" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website\html\innerPages\customer" />
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website\css\homepageStyles" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="TaskManager">
     <servers />
@@ -44,5 +95,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
