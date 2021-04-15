@@ -189,6 +189,11 @@ class New_car
     
             // Execute query
             if ($stmt->execute()) {
+                if($stmt->rowCount() == 0)
+                {
+                    $this->errormsg = 'No row was effected. Entry may be invalid.';
+                    return false;
+                }
                 return true;
             }
     
@@ -221,6 +226,11 @@ class New_car
     
             // Execute query
             if ($stmt->execute()) {
+                if($stmt->rowCount() == 0)
+                {
+                    $this->errormsg = 'No row was effected. Entry may be invalid.';
+                    return false;
+                }
                 return true;
             }
     
