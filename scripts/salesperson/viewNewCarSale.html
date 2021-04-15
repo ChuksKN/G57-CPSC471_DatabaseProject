@@ -29,7 +29,7 @@
 </html>
 
 <script>
-	$.getJSON('http://localhost/api_files/api/salesperson/viewNewCarSaleEntries.php', function(data){
+	$.getJSON('http://localhost/G57-CPSC471_DatabaseProject/api/salesperson/viewNewCarSaleEntries.php', function(data){
     $(data).each(function(i, newcar){
         if(newcar.hasOwnProperty('message')){
                 alert(newcar.message);
