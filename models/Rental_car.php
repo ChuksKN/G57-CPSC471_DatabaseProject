@@ -165,8 +165,12 @@ class Rental_car
     
             // Execute query
             if ($stmt->execute()) {
-                return true;
-            }
+                if($stmt->rowCount()==0){
+                  $this->errormsg = 'No row was effected. Invalid entry.';
+                  return false;
+                }
+              return true;
+              }
     
             // Print error if something goes wrong
             printf("Error: %s.\n", $stmt->error);
@@ -199,8 +203,12 @@ class Rental_car
     
             // Execute query
             if ($stmt->execute()) {
-                return true;
-            }
+                if($stmt->rowCount()==0){
+                  $this->errormsg = 'No row was effected. Invalid entry.';
+                  return false;
+                }
+              return true;
+              }
     
             // Print error if something goes wrong
             printf("Error: %s.\n", $stmt->error);
