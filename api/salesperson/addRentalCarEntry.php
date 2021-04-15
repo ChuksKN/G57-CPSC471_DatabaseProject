@@ -37,6 +37,7 @@ $add_car->Seating_capacity = $data->Seating_capacity;
 $add_car->Torque = $data->Torque;
 $add_car->Region = $data->Region;
 $add_car->DRL = $data->DRL;
+$rental_car->LPlateNo = $data->LPlateNo;
 
 // Create car
 if ($add_car->create()) {
