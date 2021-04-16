@@ -3,9 +3,10 @@
     <meta http-equiv="content-type" content="text/html; charset=windows-1252">
             <title>Technicians Under You</title>
             <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-            <script src="script.js"></script>
+            <script src="tech_script.js"></script>
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" href="style.css">
 </head>
 <body>
         <div class="container">
@@ -125,6 +126,12 @@
                         <input type="text" class="form-control" id="updateT_grade" required>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="updateS_EID" class="col-sm-2 col-form-label">Supervisor Employee ID</label>
+                            <div class="col-sm-10">
+                            <input type="text" class="form-control" id="updateS_EID" required>
+                            </div>
+                        </div>
                     <button id="updateTechnician" type="submit" class="btn btn-primary">Update Technician</button>
                 </form>
             </div>
@@ -148,183 +155,3 @@
         
 </body>
 </html>
-
-<script>
-    getTechnician();
-    
-    $("#addTechnicianBtn").on("click", function(e){
-        $("#newForm").toggle();
-    });
-    
-    function getTechnician(){
-        $('#techniciansBody').html('');
-        $.getJSON('http://localhost/G57-CPSC471_DatabaseProject/api/admin/viewTechnicianUnderAdmin.php?Super_EID=1', function(data){
-        $(data).each(function(i, technician){
-            if(technician.hasOwnProperty('message')){
-                    alert(technician.message);
-            }
-            else{
-                $('#techniciansBody').append($("<tr>")
-                    .append($("<td>").append(technician.EmployeeID))
-                    .append($("<td>").append(technician.Fname))
-                    .append($("<td>").append(technician.Lname))
-                    .append($("<td>").append(technician.DOB))
-                    .append($("<td>").append(technician.Email))
-                    .append($("<td>").append(technician.Address))
-                    .append($("<td>").append(technician.PhoneNumber))
-                    .append($("<td>").append(technician.Salary))    
-                    .append($("<td>").append(technician.Super_EID))
-                    .append($("<td>").append(technician.T_grade))
-                    .append($("<td>").append(`
-                                                <i class="far fa-edit updateSales" data-empid="`+technician.EmployeeID+`"></i> 
-                                                <i class="fas fa-trash deleteSales" data-empid="`+technician.EmployeeID+`"></i>
-                                            `)));
-            }
-            });
-        });
-    // loadButtons();
-    }
-    
-    $("#addTechnician").on("click", function(e) {
-        $.ajax({
-            url: 'http://localhost/G57-CPSC471_DatabaseProject/api/admin/addTechnician.php',
-            method: 'POST',
-            dataType: 'json',
-            data: JSON.stringify({ EmployeeID : $($("#newForm")[0].EmployeeID).val(), 
-                                   Fname : $($("#newForm")[0].Fname).val(),
-                                   Lname : $($("#newForm")[0].Lname).val(),
-                                   DOB : $($("#newForm")[0].DOB).val(),
-                                   Email : $($("#newForm")[0].Email).val(),
-                                   Address : $($("#newForm")[0].Address).val(),
-                                   PhoneNumber : $($("#newForm")[0].PhoneNumber).val(),
-                                   Salary : $($("#newForm")[0].Salary).val(),
-                                   T_grade : $($("#newForm")[0].T_grade).val(),
-                                   Super_EID : "1"
-                                }),
-            contentType: "application/json",
-            success: function(data){
-                alert(data.message);
-                getTechnician();
-            }
-        });
-        $("#newForm").trigger("reset");
-        $("#newForm").toggle();
-        e.preventDefault();
-    });
-
-    $(document).ready(function(){
-    
-    getSalesperson();
-    
-    $("#addSalespersonBtn").on("click", function(e){
-        $("#newForm").toggle();
-    });
-    
-    function getOneSalesperson(id){
-        $.ajax({
-            url: 'http://localhost/project/api/admin/viewSingleSalesperson.php?EmployeeID=' + id,
-            method: 'get',
-            dataType: 'json',
-            success: function(data) {
-                $($("#updateForm")[0].updateEmployeeID).val(data.EmployeeID);
-                $($("#updateForm")[0].updateFname).val(data.Fname);
-                $($("#updateForm")[0].updateLname).val(data.Lname);
-                $($("#updateForm")[0].updateDOB).val(data.DOB);
-                $($("#updateForm")[0].updateEmail).val(data.Email);
-                $($("#updateForm")[0].updateAddress).val(data.Address);
-                $($("#updateForm")[0].updatePhoneNumber).val(data.PhoneNumber);
-                $($("#updateForm")[0].updateSalary).val(data.Salary);
-                $($("#updateForm")[0].updateS_EID).val(data.Super_EID);
-                $("#updateForm").show();
-            }
-        });
-    }
-    
-    $("#addSalesperson").on("click", function(e) {
-        $.ajax({
-            url: 'http://localhost/project/api/admin/addSalesperson.php',
-            method: 'POST',
-            dataType: 'json',
-            data: JSON.stringify({ EmployeeID : $($("#newForm")[0].EmployeeID).val(), 
-                                   Fname : $($("#newForm")[0].Fname).val(),
-                                   Lname : $($("#newForm")[0].Lname).val(),
-                                   DOB : $($("#newForm")[0].DOB).val(),
-                                   Email : $($("#newForm")[0].Email).val(),
-                                   Address : $($("#newForm")[0].Address).val(),
-                                   PhoneNumber : $($("#newForm")[0].PhoneNumber).val(),
-                                   Salary : $($("#newForm")[0].Salary).val(),
-                                   Super_EID : "1"
-                                }),
-            contentType: "application/json",
-            success: function(data){
-                alert(data.message);
-                getSalesperson();
-            }
-        });
-        $("#newForm").trigger("reset");
-        $("#newForm").toggle();
-        e.preventDefault();
-    });
-    
-    function loadButtons() {
-        $(".updateSales").click(function(e){
-            getOneSalesperson($($(this)[0]).data("empid"));
-            e.preventDefault();
-        });
-        
-        $(".deleteSales").click(function(e){
-            deleteSalesperson($($(this)[0]).data("empid"));
-            e.preventDefault();
-        })
-    }
-    
-    $("#updateSalesperson").on("click", function(e) {
-        $.ajax({
-            url: 'http://localhost/api/admin/updateSalesperson.php',
-            method: 'PUT',
-            dataType: 'json',
-            data: JSON.stringify({ Super_EID: 1,
-                                   EmployeeID : $($("#updateForm")[0].updateEmployeeID).val(), 
-                                   Fname : $($("#updateForm")[0].updateFname).val(),
-                                   Lname : $($("#updateForm")[0].updateLname).val(),
-                                   DOB : $($("#updateForm")[0].updateDOB).val(),
-                                   Email : $($("#updateForm")[0].updateEmail).val(),
-                                   Address : $($("#updateForm")[0].updateAddress).val(),
-                                   PhoneNumber : $($("#updateForm")[0].updatePhoneNumber).val(),
-                                   Salary : $($("#updateForm")[0].updateSalary).val(),
-                                   Super_EIDUpdate : $($("#updateForm")[0].updateS_EID).val()
-                                }),
-            contentType: "application/json",
-            success: function(data) {
-                alert(data.message);
-                getSalesperson();
-            }
-        });
-        $("#updateForm").trigger("reset");
-        $("#updateForm").toggle();
-        e.preventDefault();
-       
-    });
-    
-
-    
-    function deleteSalesperson(id){
-        $.ajax({
-            url: 'http://localhost/project/api/admin/deleteSalesperson.php',
-            method: 'DELETE',
-            dataType: 'json',
-            data: JSON.stringify({ Super_EID : "1",
-                                   EmployeeID : id }),
-            contentType: "application/json",
-            success: function(data){
-                alert(data.message);
-            }
-        });
-    }
-
-    
-});
-  
-
-</script>
-       
