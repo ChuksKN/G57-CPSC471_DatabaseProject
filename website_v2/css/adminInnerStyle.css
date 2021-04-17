@@ -8,7 +8,7 @@ body {
     /*background-position: 25px;*/
     background-repeat: no-repeat;
     margin: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .myHomepage {
@@ -281,9 +281,9 @@ ul {
 /*}*/
 
 /*.addInformation li {*/
-    /*display: inline-block;*/
-    /*margin-left: 20px;*/
-    /*padding: 60px;*/
+/*display: inline-block;*/
+/*margin-left: 20px;*/
+/*padding: 60px;*/
 /*}*/
 
 /*.options {*/
