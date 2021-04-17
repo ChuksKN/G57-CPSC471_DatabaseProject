@@ -87,7 +87,7 @@ if ($pageWasRefreshed) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/loginStyle.css">
+    <link rel="stylesheet" href="../../website/css/loginStyle.css">
     <title>Log In &#183; CarBase</title>
     </title>
 </head>
@@ -96,7 +96,7 @@ if ($pageWasRefreshed) {
 <body class="bodyS">
     <span>
         <span class="topHeader">CPSC 471 G-57 | CarBase</span>
-        <img src="../images/logo.png" alt="Logo" class="topLogo">
+        <img src="../../website/images/logo.png" alt="Logo" class="topLogo">
     </span><br>
 
     <div class="form">
@@ -123,7 +123,7 @@ if ($pageWasRefreshed) {
         </form>
     </div><br>
 
-    <img src="../images/line.png" class="lineSplit" class="line">
+    <img src="../../website/images/line.png" class="lineSplit" class="line">
 
 </body>
 

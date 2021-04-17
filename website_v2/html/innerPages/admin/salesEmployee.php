@@ -18,8 +18,11 @@
     <section class="myHomepage">
         <span>
             <span class="topLeft">CPSC 471 G-57 | CarBase
-            <img src="../../../images/logoIcon.png" class="topImage">
-                </span>
+                <img src="../../../images/logoIcon.png" class="topImage">
+                <a href="../../login.php">
+                    <button type="button" class="Logout">Log out</button>
+                </a>
+            </span>
         </span>
     </section>
 

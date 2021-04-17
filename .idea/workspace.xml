@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bd4d2bc-cf0a-4a7b-b9a9-8a4dc8c5ef71" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/website_v2/html/homepages/carH.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/all.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/newCar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/newcar_script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/rentalCar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/rentalcar_script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/usedCar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/usedcar_script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_v2/css/adminInnerStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/css/adminInnerStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/car/carRentals.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/car/carSales.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/html/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/homepages/adminH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/homepages/adminH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/homepages/carH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/homepages/carH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/admin/salesEmployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/salesEmployee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/admin/technicianEmployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/technicianEmployee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/car/newCar.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/newCar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/car/rentalCar.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/rentalCar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/car/usedCar.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/usedCar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/website_v2/html/innerPages/car" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/website_v2/html" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -67,21 +62,19 @@
       <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\html" />
       <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\css\homepageStyles" />
       <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\css" />
-      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\html" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -99,7 +92,8 @@
       <workItem from="1618596266117" duration="9605000" />
       <workItem from="1618619809679" duration="3573000" />
       <workItem from="1618696239259" duration="1898000" />
-      <workItem from="1618698147419" duration="152000" />
+      <workItem from="1618698147419" duration="552000" />
+      <workItem from="1618698838765" duration="709000" />
     </task>
     <servers />
   </component>
