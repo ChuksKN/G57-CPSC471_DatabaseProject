@@ -29,7 +29,8 @@ body {
 .topLeft {
     margin: auto;
     vertical-align: 5px;
-    font-size: 20px;
+    /*font-size: 20px;*/
+    background-color: red;
 }
 
 .topImage {

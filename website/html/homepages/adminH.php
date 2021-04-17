@@ -15,21 +15,21 @@
             <img src="../../images/logoIcon.png" class="topImage">
         </span>
 
-        <ul class="topRight">
-            <li class="topRight2">
-                <img src="../../images/bellIcon.png" class="bellIcon">
-            </li>
-
-            <li class="topRight2">
-                <img src="../../images/helpIcon.png" class="helpIcon">
-            </li>
-
-            <li class="topRight2">
-                <a href="../../html/login.php">
-                <div class="profileIcon"></div>
-                </a>
-            </li>
-        </ul>
+<!--        <ul class="topRight">-->
+<!--            <li class="topRight2">-->
+<!--                <img src="../../images/bellIcon.png" class="bellIcon">-->
+<!--            </li>-->
+<!---->
+<!--            <li class="topRight2">-->
+<!--                <img src="../../images/helpIcon.png" class="helpIcon">-->
+<!--            </li>-->
+<!---->
+<!--            <li class="topRight2">-->
+<!--                <a href="../../html/login.php">-->
+<!--                <div class="profileIcon"></div>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--        </ul>-->
 
     </section>
 

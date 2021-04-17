@@ -2,34 +2,72 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bd4d2bc-cf0a-4a7b-b9a9-8a4dc8c5ef71" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/website/css/homepageStyles/carStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/css/homepageStyles/customerStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/css/homepageStyles/salesStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/css/homepageStyles/technicianStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/css/innerPagesStyles/carInnerStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/css/innerPagesStyles/customerInnerStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/css/innerPagesStyles/salesInnerStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/css/innerPagesStyles/technicianInnerStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/car/carRentals.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/car/carSales.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/customer/viewMaintenanceRequests.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/customer/viewOwnedCarDetails.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/customer/viewRentalCarDetails.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/sales/accessCarRentals.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/sales/accessCarSales.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/sales/viewCarRentals.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/sales/viewCarSales.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/technician/deleteMaintenanceRequests.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/technician/handleMaintenanceRequests.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/technician/viewMaintenanceRequests.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/html/innerPages/technician/viewPartInventory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/website/images/key.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/adminInnerStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-bold-demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-bold-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-bold-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-light-demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-light-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-light-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-medium-demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-medium-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-medium-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-regular-demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-regular-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-regular-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-retina-demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-retina-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/firacode-retina-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/fonts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/generator_config.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/specimen_files/grid_12-825-55-15.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/fonts/specimen_files/specimen_stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/homepageStyles/adminStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/css/loginStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/homepages/adminH.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/salesEmployee.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/sales_script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/tech_script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/technicianEmployee.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/carRentals.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/carSales.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/customer/viewMaintenanceRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/customer/viewOwnedCarDetails.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/customer/viewRentalCarDetails.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/sales/accessCarRentals.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/sales/accessCarSales.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/sales/viewCarRentals.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/sales/viewCarSales.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/deleteMaintenanceRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/handleMaintenanceRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/viewMaintenanceRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/viewPartInventory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/PageBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/backArrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/bellIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/eye.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/helpIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/key.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/leftMenuLine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/line.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/lineBox.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/logoIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/plusBlue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/threeDots.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/trash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/images/wrench.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/homepages/carH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/homepages/carH.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/homepages/customerH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/homepages/customerH.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/homepages/salesH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/homepages/salesH.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/homepages/technicianH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/homepages/technicianH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/css/homepageStyles/adminStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/css/homepageStyles/adminStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/css/homepageStyles/carStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/css/homepageStyles/carStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/html/homepages/adminH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website/html/homepages/adminH.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/admin/Salesperson.html" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/admin/Salesperson.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,13 +87,23 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1rGG2Wqj6rV9s832gixjrA596mC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/website/html/innerPages/customer" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/website_v2/html/innerPages/admin" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -64,25 +112,33 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website\html\innerPages\customer" />
-      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website\css\homepageStyles" />
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\html\innerPages\admin" />
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\css\innerPagesStyles" />
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2" />
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\css" />
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\homepages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\css" />
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\html" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3bd4d2bc-cf0a-4a7b-b9a9-8a4dc8c5ef71" name="Default Changelist" comment="" />
+      <created>1618594807707</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618594807707</updated>
+      <workItem from="1618594810415" duration="1444000" />
+      <workItem from="1618596266117" duration="9605000" />
+      <workItem from="1618619809679" duration="2390000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

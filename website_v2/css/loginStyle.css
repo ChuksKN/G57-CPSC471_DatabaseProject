@@ -1,0 +1,115 @@
+@import url(fonts/fonts.css);
+
+body {
+    background-color: #323a44ff;
+    font-family: "Fira Code";
+    text-align: center;
+    background-image: url("../images/PageBackground.png");
+    /*background-position: center;*/
+    height: 1100px;
+    background-position: 25px;
+    background-repeat: no-repeat;
+    margin: 0;
+    overflow: hidden;
+}
+
+div.form {
+    color: #ebebe1ff;
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 40px;
+    font-size: large;
+}
+
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ffffffff;
+    border-radius: 4px;
+    background-color: #e8f0feff;
+}
+
+input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ffffffff;
+    border-radius: 4px;
+    background-color: #e8f0feff;
+}
+
+.topHeader {
+    color: #ebebe1ff;
+    font-size: xx-large;
+    display: inline-block;
+    margin-top: 250px;
+    font-family: "Fira Code Medium";
+    font-weight: bold;
+}
+
+.topLogo {
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: -10px;
+}
+
+.astrix {
+    font-size: x-large;
+    color: #f65177ff;
+}
+
+.loginButton {
+    font-family: "Fira Code";
+    font-weight: bold;
+    background-color: #0078d4ff;
+    color: #ebebe1ff;
+    border-color: #ffffffff;
+    border-radius: 5px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.cancelButton {
+    font-family: "Fira Code";
+    font-weight: bold;
+    background-color: #e8f0feff;
+    color: #323a44ff;
+    border-color: #ffffffff;
+    border-radius: 5px;
+    border-style: solid;
+    font-size: 16px;
+}
+
+.lineSplit {
+    margin-top: 50px;
+}
+
+.rememberMe {
+    font-size: medium;
+}
+
+/* The alert message box */
+.alert {
+    padding: 13px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
