@@ -10,6 +10,7 @@ include_once '../../models/New_car.php';
 include_once '../../models/Salesperson.php';
 include_once '../../models/Customer.php';
 include_once '../../models/Facilitates_new_sale.php';
+include_once '../../models/CarOwner.php';
 
 // Instantiate DB & connect
 $database = new Database();
@@ -23,6 +24,8 @@ $new_car = new New_car($db);
 $emp = new Salesperson($db);
 $cust = new Customer($db);
 $newcar_entry = new Facilitates_new_sale($db);
+
+$add_owner = new CarOwner($db);
 
 $new_car->VIN = $data->VIN;
 $emp->EmployeeID = $data->EmployeeID;
@@ -75,8 +78,14 @@ if ($num1 > 0 && $num2 > 0 && $num3 > 0) {
         $newcar_entry->RegistrationDetails = $data->RegistrationDetails;
         $newcar_entry->Method_of_Payment = $data->Method_of_Payment;
 
+        $add_owner->CustomerID = $data->CustomerID;
+        $add_owner->RegistrationInfo = $data->RegistrationDetails;
+        $add_owner->LPlateNumber = $data->LPlateNo;
+        $add_owner->VIN = $data->VIN;
+
         // Create the new car sale entry
         if ($newcar_entry->create()) {
+            $add_owner->create();
             echo json_encode(
                 array('message' => 'The new car sale entry has been added')
             );

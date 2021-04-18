@@ -10,6 +10,7 @@ include_once '../../models/Used_car.php';
 include_once '../../models/Salesperson.php';
 include_once '../../models/Customer.php';
 include_once '../../models/Facilitates_used_sale.php';
+include_once '../../models/CarOwner.php';
 
 // Instantiate DB & connect
 $database = new Database();
@@ -23,6 +24,8 @@ $used_car = new Used_car($db);
 $emp = new Salesperson($db);
 $cust = new Customer($db);
 $usedcar_entry = new Facilitates_used_sale($db);
+
+$add_owner = new CarOwner($db);
 
 $used_car->VIN = $data->VIN;
 $emp->EmployeeID = $data->EmployeeID;
@@ -74,8 +77,14 @@ if ($num1 > 0 && $num2 > 0 && $num3 > 0) {
         $usedcar_entry->LPlateNo = $data->LPlateNo;
         $usedcar_entry->PaymentMethod = $data->PaymentMethod;
 
+        $add_owner->CustomerID = $data->CustomerID;
+        $add_owner->RegistrationInfo = $data->PaymentMethod;
+        $add_owner->LPlateNumber = $data->LPlateNo;
+        $add_owner->VIN = $data->VIN;
+
         // Create the used car sale entry
         if ($usedcar_entry->create()) {
+            $add_owner->create();
             echo json_encode(
                 array('message' => 'The used car sale entry has been added')
             );

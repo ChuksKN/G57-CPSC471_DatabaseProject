@@ -34,7 +34,7 @@ $rental->ReturnDate = $data->ReturnDate;
 // Update post
 if ($rental->update()) {
   echo json_encode(
-    array('Success!' => 'Car Rental Updated')
+    array('message' => 'Car Rental Updated')
   );
 } else {
   if (is_null($rental->errormsg)) {

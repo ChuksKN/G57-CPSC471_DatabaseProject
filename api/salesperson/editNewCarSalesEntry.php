@@ -7,6 +7,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once '../../config/Database.php';
 include_once '../../models/Facilitates_new_sale.php';
+include_once '../../models/CarOwner.php';
 
 // Instantiate DB & connect
 $database = new Database();
@@ -14,6 +15,8 @@ $db = $database->connect();
 
 // Instantiate newSale object
 $newSale = new Facilitates_new_sale($db);
+
+$update_owner = new CarOwner($db);
 
 // Get raw data
 $data = json_decode(file_get_contents("php://input"));
@@ -29,9 +32,14 @@ $newSale->LPlateNo = $data->LPlateNo;
 $newSale->RegistrationDetails = $data->RegistrationDetails;
 $newSale->Method_of_Payment = $data->Method_of_Payment;
 
+$update_owner->CustomerID = $data->CustomerID;
+$update_owner->RegistrationInfo = $data->RegistrationDetails;
+$update_owner->LPlateNumber = $data->LPlateNo;
+$update_owner->VIN = $data->VIN;
 
 // Update post
 if ($newSale->update()) {
+  $update_owner->update();
   echo json_encode(
     array('message' => 'New Car Sale Entry Updated')
   );

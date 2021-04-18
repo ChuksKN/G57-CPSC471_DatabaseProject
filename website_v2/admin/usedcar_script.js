@@ -14,14 +14,14 @@ $(document).ready(function(){
     }
     
     function getCar(){
-        $('#newCarBody').html('');
+        $('#usedCarBody').html('');
         $.getJSON('http://localhost/G57-CPSC471_DatabaseProject/api/car/viewUsedCars.php', function(data){
         $(data).each(function(i, car){
             if(car.hasOwnProperty('message')){
                     alert(car.message);
             }
             else{
-                $('#newCarBody').append($("<tr>")
+                $('#usedCarBody').append($("<tr>")
                     .append($("<td>").append(car.VIN))
                     .append($("<td>").append(car.Manufacturer))
                     .append($("<td>").append(car.Make))
@@ -68,7 +68,7 @@ $(document).ready(function(){
     
     $("#addUsedCar").on("click", function(e) {
         $.ajax({
-            url: 'http://localhost/G57-CPSC471_DatabaseProject/api/salesperson/addNewCarEntry.php',
+            url: 'http://localhost/G57-CPSC471_DatabaseProject/api/salesperson/addUsedCarEntry.php',
             method: 'POST',
             dataType: 'json',
             data: JSON.stringify({  VIN : $($("#newForm")[0].VIN).val(), 

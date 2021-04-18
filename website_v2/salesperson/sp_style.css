@@ -1,0 +1,13 @@
+#updateForm,
+#newForm {
+    display: none;
+}
+
+#CustomerForm,
+#newForm {
+    display: none;
+}
+
+#addCustomerBtn {
+    display: none;
+}
