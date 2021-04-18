@@ -8,7 +8,7 @@ class Make_req
     // Part Properties
     public $CustomerID;
     public $WorkOrderID;
-    public $errormsg=null;
+    public $errormsg = null;
 
     // Constructor with DB
     public function __construct($db)
@@ -102,11 +102,9 @@ class Make_req
         $stmt = $this->conn->prepare($query);
 
         // Clean data
-        $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
         $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
 
         // Bind data
-        $stmt->bindParam(':CustomerID', $this->CustomerID);
         $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
 
         // Execute query
