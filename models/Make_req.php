@@ -8,6 +8,7 @@ class Make_req
     // Part Properties
     public $CustomerID;
     public $WorkOrderID;
+    public $errormsg=null;
 
     // Constructor with DB
     public function __construct($db)
@@ -59,6 +60,7 @@ class Make_req
     // Create Post
     public function create()
     {
+        try{
         // Create query
         $query = 'INSERT INTO ' . $this->table . ' ';
 
@@ -82,6 +84,11 @@ class Make_req
         printf("Error: %s.\n", $stmt->error);
 
         return false;
+        }
+        catch(Exception $e){
+            $this->errormsg = $e->getMessage();
+            return false;
+        }
     }
 
     // Update Post
