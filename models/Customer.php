@@ -140,14 +140,14 @@ class Customer
 
       // Clean data
       $this->CName = htmlspecialchars(strip_tags($this->CName));
-      $this->dname = htmlspecialchars(strip_tags($this->C_DOB));
+      $this->C_DOB = htmlspecialchars(strip_tags($this->C_DOB));
       $this->Credit_Score = htmlspecialchars(strip_tags($this->Credit_Score));
       $this->Drivers_License = htmlspecialchars(strip_tags($this->Drivers_License));
       $this->PhoneNo = htmlspecialchars(strip_tags($this->PhoneNo));
       $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
 
       // Bind data
-      $stmt->bindParam(':CName', $this->fname);
+      $stmt->bindParam(':CName', $this->CName);
       $stmt->bindParam(':C_DOB', $this->C_DOB);
       $stmt->bindParam(':Credit_Score', $this->Credit_Score);
       $stmt->bindParam(':Drivers_License', $this->Drivers_License);
