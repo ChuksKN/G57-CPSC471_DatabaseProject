@@ -8,6 +8,7 @@
     include_once '../../config/Database.php';
     include_once '../../models/Maintenance_req.php';
     include_once '../../models/Handle_req.php';
+    include_once '../../models/Make_req.php';
 
     //Instantiate DB & connect
     $database = new Database();
@@ -15,6 +16,7 @@
 
     $request = new Maintenance_req($db);
     $handler = new Handle_req($db);
+    $mk = new Make_req($db);
 
     // Get raw posted data
     $data = json_decode(file_get_contents("php://input"));
@@ -40,12 +42,13 @@
 
         $request->WorkOrderID = $data->WorkOrderID;
         $handler->WorkOrderID = $data->WorkOrderID;
+        $mk->WorkOrderID = $data->WorkOrderID;
 
         if(in_array($handler->WorkOrderID, $request_arr))
         {
 
               // Delete handler person
-              if($handler->delete() && $request->delete()){
+              if($handler->delete() && $request->delete() && $mk->delete()){
                   echo json_encode(
                       array('message' => 'Maintenance Request Has Been Deleted')
                   );
@@ -58,6 +61,12 @@
                         );
                     }
                     else if(!is_null($request->errormsg))
+                    {
+                        echo json_encode(
+                            array('message' => 'Failed To Delete Maintenance Request. '.$request->errormsg)
+                        );
+                    }
+                    else if(!is_null($mk->errormsg))
                     {
                         echo json_encode(
                             array('message' => 'Failed To Delete Maintenance Request. '.$request->errormsg)
