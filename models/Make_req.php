@@ -94,6 +94,7 @@ class Make_req
     // Delete Post
     public function delete()
     {
+        try{
         // Create query
         $query = 'DELETE FROM ' . $this->table . ' WHERE CustomerID = :CustomerID, WorkOrderID = :WorkOrderID';
 
@@ -117,5 +118,9 @@ class Make_req
         printf("Error: %s.\n", $stmt->error);
 
         return false;
+        } catch (Exception $e) {
+            $this->errormsg = $e->getMessage();
+            return false;
+        }
     }
 }
