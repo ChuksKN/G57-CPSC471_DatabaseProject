@@ -62,7 +62,7 @@ class Make_req
     {
         try{
         // Create query
-        $query = 'INSERT INTO ' . $this->table . ' ';
+        $query = 'INSERT INTO ' . $this->table . ' SET CustomerID = :CustomerID, WorkOrderID = :WorkOrderID';
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
@@ -89,36 +89,6 @@ class Make_req
             $this->errormsg = $e->getMessage();
             return false;
         }
-    }
-
-    // Update Post
-    public function update()
-    {
-        // Create query
-        $query = 'UPDATE ' . $this->table . '
-                    SET 
-                    WHERE ';
-
-        // Prepare statement
-        $stmt = $this->conn->prepare($query);
-
-        // Clean data
-        $this->CustomerID = htmlspecialchars(strip_tags($this->CustomerID));
-        $this->WorkOrderID = htmlspecialchars(strip_tags($this->WorkOrderID));
-
-        // Bind data
-        $stmt->bindParam(':CustomerID', $this->CustomerID);
-        $stmt->bindParam(':WorkOrderID', $this->WorkOrderID);
-
-        // Execute query
-        if ($stmt->execute()) {
-            return true;
-        }
-
-        // Print error if something goes wrong
-        printf("Error: %s.\n", $stmt->error);
-
-        return false;
     }
 
     // Delete Post
