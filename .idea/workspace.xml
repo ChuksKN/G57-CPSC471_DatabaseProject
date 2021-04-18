@@ -2,15 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bd4d2bc-cf0a-4a7b-b9a9-8a4dc8c5ef71" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/website_v2/html/homepages/technicianH.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/h_script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/handleRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/maintenanceRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/mr_script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/website_v2/html/innerPages/technician/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/html/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_v2/html/homepages/adminH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/homepages/adminH.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_v2/html/homepages/carH.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/homepages/carH.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/admin/salesEmployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/salesEmployee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/admin/technicianEmployee.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/innerPages/admin/technicianEmployee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/car/newCar.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/newCar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/car/rentalCar.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/rentalCar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/car/usedCar.php" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/html/innerPages/car/usedCar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/css/adminInnerStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/website_v2/css/adminInnerStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/technician/deleteMaintenanceRequests.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/technician/handleMaintenanceRequests.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/technician/viewMaintenanceRequests.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_v2/html/innerPages/technician/viewPartInventory.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +52,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/website_v2/html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/website_v2/html/innerPages/technician" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -55,11 +61,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\html\innerPages\technician" />
       <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\html\innerPages\car" />
       <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\html\homepages" />
       <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\html\innerPages\admin" />
       <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\css\innerPagesStyles" />
-      <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\AppServ\www\G57-CPSC471_DatabaseProject\website_v2\html" />
@@ -93,7 +99,9 @@
       <workItem from="1618619809679" duration="3573000" />
       <workItem from="1618696239259" duration="1898000" />
       <workItem from="1618698147419" duration="552000" />
-      <workItem from="1618698838765" duration="709000" />
+      <workItem from="1618698838765" duration="2379000" />
+      <workItem from="1618764350098" duration="2050000" />
+      <workItem from="1618768718866" duration="1007000" />
     </task>
     <servers />
   </component>
