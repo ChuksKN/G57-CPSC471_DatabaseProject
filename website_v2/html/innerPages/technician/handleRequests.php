@@ -77,7 +77,6 @@
         <div class="underLine"></div>
 
         <div class="container">
-            <h1>Current Requests</h1>
             <button id="addHandleRequestBtn" class="btn btn-primary btn-block">Work On New Maintenance Request</button><br><br>
             <form id="newForm">
                 <div class="form-group row">

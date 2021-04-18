@@ -33,7 +33,6 @@
     <section>
         <div class="menuHolder">
             <div class="adminHolder">Admin
-                <img src="../../images/threeDots.png" class="threeButtons">
             </div>
 
 

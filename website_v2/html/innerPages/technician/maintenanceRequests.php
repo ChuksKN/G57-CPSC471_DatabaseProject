@@ -72,12 +72,11 @@
 
 <div class="rightMenuContainer">
     <section class="formThing">
-        <p class="bolderEmployee">Handle requests</p>
+        <p class="bolderEmployee">Maintenance requests</p>
         <p class="description">Handle requests</p>
         <div class="underLine"></div>
 
         <div class="container">
-            <h1>Maintenance Requests</h1>
             <button id="addMaintenanceRequestBtn" class="btn btn-primary btn-block">New Maintenance Request</button><br><br>
             <form id="newForm">
                 <div class="form-group row">
