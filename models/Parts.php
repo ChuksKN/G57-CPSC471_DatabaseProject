@@ -30,6 +30,33 @@
 
       return $stmt;
     }
+    
+    // Get Single Post
+    public function read_single()
+    {
+      // Create query
+      $query = 'SELECT *
+                      FROM ' . $this->table . '
+                      WHERE PartID = ?
+                      LIMIT 0,1';
+
+      // Prepare statement
+      $stmt = $this->conn->prepare($query);
+
+      // Bind ID
+      $stmt->bindParam(1, $this->PartID);
+
+      // Execute query
+      $stmt->execute();
+
+      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+      // Set properties
+      $this->PartID = $row['PartID'];
+      $this->Part_Desc = $row['Part_Desc'];
+      $this->PartName = $row['PartName'];
+      $this->Price = $row['Price'];
+    }
 
     public function read_inventory() {
       // Create query
