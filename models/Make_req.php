@@ -96,7 +96,7 @@ class Make_req
     {
         try{
         // Create query
-        $query = 'DELETE FROM ' . $this->table . ' WHERE CustomerID = :CustomerID, WorkOrderID = :WorkOrderID';
+        $query = 'DELETE FROM ' . $this->table . ' WHERE WorkOrderID = :WorkOrderID';
 
         // Prepare statement
         $stmt = $this->conn->prepare($query);
