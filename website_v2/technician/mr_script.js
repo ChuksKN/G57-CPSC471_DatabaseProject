@@ -36,18 +36,18 @@ $(document).ready(function(){
             success: function(data){
                 alert(data.message);
                 getMaintenanceRequest();
-                $.ajax({
-                    url: 'http://localhost/G57-CPSC471_DatabaseProject/api/technician/addMakeRequest.php',
-                    method: 'POST',
-                    dataType: 'json',
-                    data: JSON.stringify({ WorkOrderID : $($("#newForm")[0].WorkOrderID).val(), 
-                                           CustomerID : $($("#newForm")[0].CustomerID).val()
-                                        }),
-                    contentType: "application/json",
-                    success: function(data){
-                        alert(data.message);
-                    }
-                });
+            }
+        });
+        $.ajax({
+            url: 'http://localhost/G57-CPSC471_DatabaseProject/api/technician/addMakeRequest.php',
+            method: 'POST',
+            dataType: 'json',
+            data: JSON.stringify({ WorkOrderID : $($("#newForm")[0].WorkOrderID).val(), 
+                                   CustomerID : $($("#newForm")[0].CustomerID).val()
+                                }),
+            contentType: "application/json",
+            success: function(data){
+                alert(data.message);
             }
         });
         $("#newForm").trigger("reset");
