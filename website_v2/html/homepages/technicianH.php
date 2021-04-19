@@ -1,16 +1,22 @@
 <?php
 
-session_start();
-
-if (isset($_SESSION['employeeid']) && isset($_SESSION['role'])) {
-    if ($_SESSION['role'] == 'admin') {
-        header('Location: adminH.php');
-    } else if ($_SESSION['role'] == 'sales') {
-        header('Location: salespersonH.php');
+    session_start();
+    
+    if(isset($_SESSION['employeeid']) && isset($_SESSION['role']))
+    {
+        if($_SESSION['role'] == 'admin')
+        {
+            header('Location: adminH.php');
+        }
+        else if($_SESSION['role'] == 'sales')
+        {
+            header('Location: salespersonH.php');
+        }
     }
-} else {
-    header('Location: ../login.php');
-}
+    else
+    {
+        header('Location: ../login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +29,7 @@ if (isset($_SESSION['employeeid']) && isset($_SESSION['role'])) {
 
 <body>
 
-    <section class="myHomepage">
+<section class="myHomepage">
         <span>
             <span class="topLeft">CPSC 471 G-57 | CarBase
                 <img src="../../images/logoIcon.png" class="topImage">
@@ -32,48 +38,48 @@ if (isset($_SESSION['employeeid']) && isset($_SESSION['role'])) {
                 </a>
             </span>
         </span>
-    </section>
+</section>
 
-    <section class="myAdmin">
+<section class="myAdmin">
         <span>
             <span class="myAdminText">My Homepage</span>
         </span>
-    </section>
+</section>
 
-    <section>
-        <div class="separateLine"></div>
-    </section>
+<section>
+    <div class="separateLine"></div>
+</section>
 
-    <section>
-        <div class="menuHolder">
-            <div class="adminHolder">Technician
-                <img src="../../images/threeDots.png" class="threeButtons">
-            </div>
-
-
-            <ul class="nav" id="loadCategories">
-                <li href="#">
-                    <a href="../innerPages/technician/handleRequests.php">
-                        <div class="box">
-                            <p class="textInBox">Handle requests</p>
-                            <img src="../../images/lineBox.png" class="lineBox">
-                        </div>
-                    </a>
-                </li>
-
-                <li href="#">
-                    <a href="../innerPages/technician/maintenanceRequests.php">
-                        <div class="box">
-                            <p class="textInBox">Manage maintenance requests</p>
-                            <img src="../../images/lineBox.png" class="lineBox">
-                        </div>
-                    </a>
-                </li>
-
-            </ul>
-
+<section>
+    <div class="menuHolder">
+        <div class="adminHolder">Technician
+            <img src="../../images/threeDots.png" class="threeButtons">
         </div>
-    </section>
+
+
+        <ul class="nav" id="loadCategories">
+            <li href="#">
+                <a href="../innerPages/technician/handleRequests.php">
+                    <div class="box">
+                        <p class="textInBox">Handle requests</p>
+                        <img src="../../images/lineBox.png" class="lineBox">
+                    </div>
+                </a>
+            </li>
+
+            <li href="#">
+                <a href="../innerPages/technician/maintenanceRequests.php">
+                    <div class="box">
+                        <p class="textInBox">Manage maintenance requests</p>
+                        <img src="../../images/lineBox.png" class="lineBox">
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+</section>
 
 </body>
 

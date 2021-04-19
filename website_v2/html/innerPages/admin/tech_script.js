@@ -81,7 +81,7 @@ $(document).ready(function(){
                                    PhoneNumber : $($("#newForm")[0].PhoneNumber).val(),
                                    Salary : $($("#newForm")[0].Salary).val(),
                                    T_grade : $($("#newForm")[0].T_grade).val(),
-                                   Super_EID : "1"
+                                   Super_EID : $("#id").data("employeeID")
                                 }),
             contentType: "application/json",
             success: function(data){
@@ -130,7 +130,7 @@ $(document).ready(function(){
             url: 'http://localhost/G57-CPSC471_DatabaseProject/api/admin/deleteTechnician.php',
             method: 'DELETE',
             dataType: 'json',
-            data: JSON.stringify({ Super_EID : "1",
+            data: JSON.stringify({ Super_EID : $("#id").data("employeeID"),
                                    EmployeeID : id }),
             contentType: "application/json",
             success: function(data){

@@ -1,3 +1,23 @@
+<?php
+
+    session_start();
+    
+    if(isset($_SESSION['employeeid']) && isset($_SESSION['role']))
+    {
+        if($_SESSION['role'] == 'admin')
+        {
+            header('Location: ../../homepages/adminH.php');
+        }
+        else if($_SESSION['role'] == 'sales')
+        {
+            header('Location: ../../homepages/salespersonH.php');
+        }
+    }
+    else
+    {
+        header('Location: ../../login.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +48,7 @@
 
 <section class="myAdmin">
         <span>
-            <span class="myAdminTextOne">Technician</span>
+            <span class="myAdminText">Technician</span>
         </span>
 </section>
 
@@ -69,7 +89,7 @@
 </section>
 
 <div class="separateLine2"></div>
-
+<div id="id" data-employeeID = <?php echo $_SESSION['employeeid']; ?>></div>
 <div class="rightMenuContainer">
     <section class="formThing">
         <p class="bolderEmployee">Handle requests</p>

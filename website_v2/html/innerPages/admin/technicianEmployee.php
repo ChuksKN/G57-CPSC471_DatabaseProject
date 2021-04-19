@@ -1,3 +1,23 @@
+<?php
+
+    session_start();
+    
+    if(isset($_SESSION['employeeid']) && isset($_SESSION['role']))
+    {
+        if($_SESSION['role'] == 'sales')
+        {
+            header('Location: ../../homepages/salespersonH.php');
+        }
+        else if($_SESSION['role'] == 'tech')
+        {
+            header('Location: ../../homepages/technicianH.php');
+        }
+    }
+    else
+    {
+        header('Location: ../../login.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +89,7 @@
 </section>
 
 <div class="separateLine2"></div>
-
+<div id="id" data-employeeID = <?php echo $_SESSION['employeeid']; ?>></div>
 <div class="rightMenuContainer">
     <section class="formThing">
         <p class="bolderEmployee">Technician employees</p>

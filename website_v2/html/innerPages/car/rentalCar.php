@@ -1,3 +1,19 @@
+<?php
+
+    session_start();
+    
+    if(isset($_SESSION['employeeid']) && isset($_SESSION['role']))
+    {
+        if($_SESSION['role'] == 'tech')
+        {
+            header('Location: ../../homepages/technicianH.php');
+        }
+    }
+    else
+    {
+        header('Location: ../../login.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

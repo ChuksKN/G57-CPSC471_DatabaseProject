@@ -78,7 +78,7 @@ $(document).ready(function(){
                                    Address : $($("#newForm")[0].Address).val(),
                                    PhoneNumber : $($("#newForm")[0].PhoneNumber).val(),
                                    Salary : $($("#newForm")[0].Salary).val(),
-                                   Super_EID : "1"
+                                   Super_EID : $("#id").data("employeeID")
                                 }),
             contentType: "application/json",
             success: function(data){
@@ -126,7 +126,7 @@ $(document).ready(function(){
             url: 'http://localhost/G57-CPSC471_DatabaseProject/api/admin/deleteSalesperson.php',
             method: 'DELETE',
             dataType: 'json',
-            data: JSON.stringify({ Super_EID : "1",
+            data: JSON.stringify({ Super_EID : $("#id").data("employeeID"),
                                    EmployeeID : id }),
             contentType: "application/json",
             success: function(data){

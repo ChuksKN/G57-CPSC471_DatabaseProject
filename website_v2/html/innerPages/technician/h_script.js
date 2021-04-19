@@ -58,7 +58,7 @@ $(document).ready(function(){
             url: 'http://localhost/G57-CPSC471_DatabaseProject/api/technician/addHandleRequest.php',
             method: 'POST',
             dataType: 'json',
-            data: JSON.stringify({ EmployeeID : 70, 
+            data: JSON.stringify({ EmployeeID : $("#id").data("employeeID"), 
                                    WorkOrderID : $($("#newForm")[0].WorkOrderID).val()
                                 }),
             contentType: "application/json",
@@ -78,7 +78,7 @@ $(document).ready(function(){
             url: 'http://localhost/G57-CPSC471_DatabaseProject/api/technician/updateMaintenanceRequest.php',
             method: 'PUT',
             dataType: 'json',
-            data: JSON.stringify({ EmployeeID: 70,
+            data: JSON.stringify({ EmployeeID: $("#id").data("employeeID"),
                                    WorkOrderID : $($("#updateForm")[0].updateWorkOrderID).val(), 
                                    WorkCost : $($("#updateForm")[0].updateWorkCost).val(),
                                    Request_Date : $($("#updateForm")[0].updateRequest_Date).val()

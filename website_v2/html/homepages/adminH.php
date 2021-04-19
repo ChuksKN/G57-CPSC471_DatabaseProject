@@ -1,16 +1,21 @@
 <?php
-
-session_start();
-
-if (isset($_SESSION['employeeid']) && isset($_SESSION['role'])) {
-    if ($_SESSION['role'] == 'sales') {
-        header('Location: salespersonH.php');
-    } else if ($_SESSION['role'] == 'tech') {
-        header('Location: technicianH.php');
+    session_start();
+    
+    if(isset($_SESSION['employeeid']) && isset($_SESSION['role']))
+    {
+        if($_SESSION['role'] == 'sales')
+        {
+            header('Location: salespersonH.php');
+        }
+        else if($_SESSION['role'] == 'tech')
+        {
+            header('Location: technicianH.php');
+        }
     }
-} else {
-    header('Location: ../login.php');
-}
+    else
+    {
+        header('Location: ../login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +33,7 @@ if (isset($_SESSION['employeeid']) && isset($_SESSION['role'])) {
             <span class="topLeft">CPSC 471 G-57 | CarBase
                 <img src="../../images/logoIcon.png" class="topImage">
                 <a href="../logout.php">
-                    <button type="button" class="Logout">Log out</button>
+                    <button type="button" class="Logout" onclick>Log out</button>
                 </a>
             </span>
         </span>
@@ -64,15 +69,6 @@ if (isset($_SESSION['employeeid']) && isset($_SESSION['role'])) {
                     <a href="../innerPages/admin/technicianEmployee.php">
                         <div class="box">
                             <p class="textInBox">Manage technician employees</p>
-                            <img src="../../images/lineBox.png" class="lineBox">
-                        </div>
-                    </a>
-                </li>
-
-                <li href="#">
-                    <a href="carH.php">
-                        <div class="box">
-                            <p class="textInBox">Car inventory</p>
                             <img src="../../images/lineBox.png" class="lineBox">
                         </div>
                     </a>

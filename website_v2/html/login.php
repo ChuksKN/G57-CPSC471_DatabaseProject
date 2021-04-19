@@ -90,7 +90,7 @@ if ($pageWasRefreshed) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../website/css/loginStyle.css">
+    <link rel="stylesheet" href="../css/loginStyle.css">
     <title>Log In &#183; CarBase</title>
     </title>
 </head>
