@@ -13,7 +13,7 @@
         <span>
             <span class="topLeft">CPSC 471 G-57 | CarBase
                 <img src="../../images/logoIcon.png" class="topImage">
-                <a href="../login.php">
+                <a href="../logout.php">
                 <button type="button" class="Logout">Log out</button>
                 </a>
             </span>
