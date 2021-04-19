@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../../css/homepageStyles/adminStyle.css">
-    <title>My Car Homepage &#183; CarBase</title>
+    <title>My Salesperson Homepage &#183; CarBase</title>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
             <span class="topLeft">CPSC 471 G-57 | CarBase
                 <img src="../../images/logoIcon.png" class="topImage">
                 <a href="../login.php">
-                <button type="button" class="Logout">Log out</button>
+                    <button type="button" class="Logout">Log out</button>
                 </a>
             </span>
         </span>
@@ -32,33 +32,42 @@
 
 <section>
     <div class="menuHolder">
-        <div class="adminHolder">Car
+        <div class="adminHolder">Salesperson
         </div>
 
 
         <ul class="nav" id="loadCategories">
             <li href="#">
-                <a href="../innerPages/car/newCar.php">
+                <a href="../innerPages/sales/newCarSales.php">
                     <div class="box">
-                        <p class="textInBox">New cars</p>
+                        <p class="textInBox">New car sales</p>
                         <img src="../../images/lineBox.png" class="lineBox">
                     </div>
                 </a>
             </li>
 
             <li href="#">
-                <a href="../innerPages/car/rentalCar.php">
+                <a href="../innerPages/sales/carRentals.php">
                     <div class="box">
-                        <p class="textInBox">Rental cars</p>
+                        <p class="textInBox">Car rentals</p>
                         <img src="../../images/lineBox.png" class="lineBox">
                     </div>
                 </a>
             </li>
 
             <li href="#">
-                <a href="../innerPages/car/usedCar.php">
+                <a href="../innerPages/sales/usedCarSales.php">
                     <div class="box">
-                        <p class="textInBox">Used cars</p>
+                        <p class="textInBox">Used car sales</p>
+                        <img src="../../images/lineBox.png" class="lineBox">
+                    </div>
+                </a>
+            </li>
+
+            <li href="#">
+                <a href="carH.php">
+                    <div class="box">
+                        <p class="textInBox">Car inventory</p>
                         <img src="../../images/lineBox.png" class="lineBox">
                     </div>
                 </a>

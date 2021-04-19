@@ -55,6 +55,15 @@
                     </a>
                 </li>
 
+                <li href="#">
+                    <a href="carH.php">
+                        <div class="box">
+                            <p class="textInBox">Car inventory</p>
+                            <img src="../../images/lineBox.png" class="lineBox">
+                        </div>
+                    </a>
+                </li>
+
             </ul>
 
         </div>

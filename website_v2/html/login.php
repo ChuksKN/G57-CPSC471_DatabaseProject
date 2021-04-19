@@ -96,7 +96,7 @@ if ($pageWasRefreshed) {
 <body class="bodyS">
     <span>
         <span class="topHeader">CPSC 471 G-57 | CarBase</span>
-        <img src="../../website/images/logo.png" alt="Logo" class="topLogo">
+        <img src="../../website_v2/images/logo.png" alt="Logo" class="topLogo">
     </span><br>
 
     <div class="form">

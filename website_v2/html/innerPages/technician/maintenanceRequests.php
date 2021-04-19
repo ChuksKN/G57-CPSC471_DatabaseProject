@@ -28,7 +28,7 @@
 
 <section class="myAdmin">
         <span>
-            <span class="myAdminText">Technician</span>
+            <span class="myAdminTextOne">Technician</span>
         </span>
 </section>
 

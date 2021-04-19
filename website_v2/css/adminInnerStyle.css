@@ -8,7 +8,7 @@ body {
     /*background-position: 25px;*/
     background-repeat: no-repeat;
     margin: 0;
-    /* overflow: hidden; */
+     /*overflow: hidden; */
 }
 
 .myHomepage {
@@ -31,9 +31,13 @@ body {
     float: left;
 }
 
-/*.myAdminText2{*/
-/*    font-size: 30px;*/
-/*}*/
+.myAdminTextOne{
+    font-size: 35px;
+}
+
+.myAdminTextTwo{
+    font-size: 30px;
+}
 
 .topImage {
     vertical-align: middle;
