@@ -7,13 +7,15 @@
 - The database and frontend implementation is intended to provide an effective dealership management platform
 - See the final report for an indept overvie of the project
 
-### Setup Requirements / Process
+### Setup Requirements
 ------------
 - Web server (Apache was used for development)
 - MySQL Database
 - PHP
 - A database manager (MySQL Workbench was used during development)
 
+### Setup Process
+------------
 1. Download the project file, extract it and place the folder in the web folder of your web server
 2. Start up MySQL and your web server
 3. Import the database *.sql* file from "G57-CPSC471_DatabaseProject\database_file" into your database manager
