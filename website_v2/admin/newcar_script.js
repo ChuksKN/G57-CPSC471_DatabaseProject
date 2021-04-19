@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     function loadButtons() {
         $(".editCar").click(function(e){
-            getOneSalesperson($($(this)[0]).data("vin"));
+            getOneNewCar($($(this)[0]).data("vin"));
             e.preventDefault();
         });
     }
@@ -45,21 +45,26 @@ $(document).ready(function(){
         });
     }
     
-    function getOneSalesperson(id){
+    function getOneNewCar(id){
         $.ajax({
-            url: 'http://localhost/G57-CPSC471_DatabaseProject/api/admin/viewSingleSalesperson.php?EmployeeID=' + id,
+            url: 'http://localhost/G57-CPSC471_DatabaseProject/api/car/selectNewCar.php?VIN=' + id,
             method: 'get',
             dataType: 'json',
             success: function(data) {
-                $($("#updateForm")[0].updateEmployeeID).val(data.EmployeeID);
-                $($("#updateForm")[0].updateFname).val(data.Fname);
-                $($("#updateForm")[0].updateLname).val(data.Lname);
-                $($("#updateForm")[0].updateDOB).val(data.DOB);
-                $($("#updateForm")[0].updateEmail).val(data.Email);
-                $($("#updateForm")[0].updateAddress).val(data.Address);
-                $($("#updateForm")[0].updatePhoneNumber).val(data.PhoneNumber);
-                $($("#updateForm")[0].updateSalary).val(data.Salary);
-                $($("#updateForm")[0].updateS_EID).val(data.Super_EID);
+                $($("#updateForm")[0].updateVIN).val(data.VIN);
+                $($("#updateForm")[0].updateManufacturer).val(data.Manufacturer);
+                $($("#updateForm")[0].updateMake).val(data.Make);
+                $($("#updateForm")[0].updateYear).val(data.Year);
+                $($("#updateForm")[0].updateEngine).val(data.Engine);
+                $($("#updateForm")[0].updateOutput).val(data.Output);
+                $($("#updateForm")[0].updateNo_of_doors).val(data.No_of_doors);
+                $($("#updateForm")[0].updateFuel_tank_cap).val(data.Fuel_tank_cap);
+                $($("#updateForm")[0].updateTransmission).val(data.Transmission);
+                $($("#updateForm")[0].updateTerrain).val(data.Terrain);
+                $($("#updateForm")[0].updateSeating_capacity).val(data.Seating_capacity);
+                $($("#updateForm")[0].updateTorque).val(data.Torque);
+                $($("#updateForm")[0].updateRegion).val(data.Region);
+                $($("#updateForm")[0].updateDRL).val(data.DRL);
                 $("#updateForm").show();
             }
         });
@@ -97,21 +102,25 @@ $(document).ready(function(){
     });
     
     
-    $("#updateSalesperson").on("click", function(e) {
+    $("#updateNewCar").on("click", function(e) {
         $.ajax({
-            url: 'http://localhost/G57-CPSC471_DatabaseProject/api/admin/updateSalesperson.php',
+            url: 'http://localhost/G57-CPSC471_DatabaseProject/api/car/updateNewCar.php',
             method: 'PUT',
             dataType: 'json',
-            data: JSON.stringify({ Super_EID: 1,
-                                   EmployeeID : $($("#updateForm")[0].updateEmployeeID).val(), 
-                                   Fname : $($("#updateForm")[0].updateFname).val(),
-                                   Lname : $($("#updateForm")[0].updateLname).val(),
-                                   DOB : $($("#updateForm")[0].updateDOB).val(),
-                                   Email : $($("#updateForm")[0].updateEmail).val(),
-                                   Address : $($("#updateForm")[0].updateAddress).val(),
-                                   PhoneNumber : $($("#updateForm")[0].updatePhoneNumber).val(),
-                                   Salary : $($("#updateForm")[0].updateSalary).val(),
-                                   Super_EIDUpdate : $($("#updateForm")[0].updateS_EID).val()
+            data: JSON.stringify({ VIN : $($("#updateForm")[0].updateVIN).val(), 
+                                   Manufacturer : $($("#updateForm")[0].updateManufacturer).val(),
+                                   Make : $($("#updateForm")[0].updateMake).val(),
+                                   Year : $($("#updateForm")[0].updateYear).val(),
+                                   Engine : $($("#updateForm")[0].updateEngine).val(),
+                                   Output : $($("#updateForm")[0].updateOutput).val(),
+                                   No_of_doors : $($("#updateForm")[0].updateNo_of_doors).val(),
+                                   Fuel_tank_cap : $($("#updateForm")[0].updateFuel_tank_cap).val(),
+                                   Transmission : $($("#updateForm")[0].updateTransmission).val(),
+                                   Terrain : $($("#updateForm")[0].updateTerrain).val(),
+                                   Seating_capacity : $($("#updateForm")[0].updateSeating_capacity).val(),
+                                   Torque : $($("#updateForm")[0].updateTorque).val(),
+                                   Region : $($("#updateForm")[0].updateRegion).val(),
+                                   DRL : $($("#updateForm")[0].updateDRL).val()
                                 }),
             contentType: "application/json",
             success: function(data) {
