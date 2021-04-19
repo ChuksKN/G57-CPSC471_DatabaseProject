@@ -60,12 +60,15 @@ if (isset($_POST["login"])) {
         //If the posted values exist, then session will be created for the user.
         if ($count1 > 0 && $count2 > 0) {
             $_SESSION['employeeid'] = $_POST["employeeid"];
+            $_SESSION['role'] = "admin";
             header("location:homepages/adminH.php");
         } elseif ($count1 > 0 && $count3 > 0) {
             $_SESSION['employeeid'] = $_POST["employeeid"];
-            header("location:homepages/salesH.php");
+            $_SESSION['role'] = "sales";
+            header("location:homepages/salespersonH.php");
         } elseif ($count1 > 0 && $count4 > 0) {
             $_SESSION['employeeid'] = $_POST["employeeid"];
+            $_SESSION['role'] = "tech";
             header("location:homepages/technicianH.php");
         } else {
             //If the login credentials doesn't match, he will be shown with an error message.
