@@ -5,7 +5,7 @@
 ### Overview
 ------------
 - The database and frontend implementation is intended to provide an effective dealership management platform
-- See the final report for an indept overvie of the project
+- See the final report for an indept overview of the project
 
 ### Setup Requirements
 ------------
