@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    </body>
+</html>
+<script>
+    $.ajax({
+        url: 'http://localhost/api_files/api/salesperson/addUsedCarEntry.php',
+        method: 'POST',
+        dataType: 'json',
+        data: JSON.stringify({ VIN : "oueyrdhdhsjsdshddfssdhdom", 
+                               Manufacturer : "Mercedes",
+                               Make : "E Class",
+                               DistanceTravelled : 545,
+                               Year : "2020",
+                               Engine : " AMG V6 Biturbo",
+                               Output : "test123",
+                               No_of_doors : 4,
+                               Fuel_tank_cap : 2021,
+                               Transmission : "D8",
+                               Terrain : "Track",
+                               Seating_capacity : 5,
+                               Torque : "73674",
+                               Region : "Germany",
+                               DRL : "No",
+                               
+                             }),
+        contentType: "application/json",
+        success: function(data){
+            alert(data.message);
+        }
+    });
+</script>

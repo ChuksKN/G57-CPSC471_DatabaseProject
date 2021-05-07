@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    </body>
+</html>
+<script>
+    $.ajax({
+        url: 'http://localhost/project/api/admin/updateTechnician.php',
+        method: 'POST',
+        dataType: 'json',
+        data: JSON.stringify({ Super_EID : "513",
+                               EmployeeID : "4143",
+                               Fname : "John", 
+                               Lname : "Doe",
+                               DOB : "1981-04-06",
+                               Email : "jdoe@test.com",
+                               Address : "Mt. Fuji",
+                               PhoneNumber : "971523492",
+                               Salary : "15000",
+                               Super_EIDUpdate : "513",
+                               T_grade : "100" }),
+        contentType: "application/json",
+        success: function(data){
+            alert(data.message);
+        }
+    });
+</script>
